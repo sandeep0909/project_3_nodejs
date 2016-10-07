@@ -1,0 +1,19 @@
+{
+  "name": "project_3_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandeep0909/project_3_nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandeep0909/project_3_nodejs/issues"
+  },
+  "homepage": "https://github.com/sandeep0909/project_3_nodejs#readme"
+}
