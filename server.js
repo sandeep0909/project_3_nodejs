@@ -8,6 +8,7 @@ var
   mongoose = require('mongoose'),
   server = require('http').createServer(app), //added incase we use websockets
   socket = require('socket.io')(server),
+  request = require('request'),
   PORT = process.env.PORT || 3000
 
 
@@ -34,6 +35,14 @@ app.use(express.static(__dirname + '/public')) // to get static public files
 
 
 //link to routes
+// meetupRoutes = require('./routes/meetup.js')
+
+app.get('/meetup/categories', function(req, res) {
+    var apiurl = 'https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b'
+    request.get(apiurl, function(err, response, body) {
+        res.send(body)
+    })
+})
 
 
 
