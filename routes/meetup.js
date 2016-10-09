@@ -1,11 +1,13 @@
 var
 express = require('express'),
-meetupRouter = express.Router()
+meetupRouter = express.Router(),
 meetupController = require('../controllers/meetup.js')
 
-meetupRouter.route('/meetup/:id')
-.get(meetupController.show)
+meetupRouter.get('/meetup/categories', meetupController.categories);
+meetupRouter.get('/meetup/cities', meetupController.cities);
+meetupRouter.get('/meetup/topics', meetupController.topics);
+meetupRouter.get('/meetup/openEvents', meetupController.openEvents);
+meetupRouter.get('/meetup/specificEvent', meetupController.specificEvent);
 
-
-
+// pagesRouter.get('/', pagesController.index);
  module.exports = meetupRouter
