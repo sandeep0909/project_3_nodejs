@@ -10,11 +10,16 @@ var
   server = require('http').createServer(app), //added incase we use websockets
   socket = require('socket.io')(server),
   request = require('request'),
+  passport = require('passport'),
+	passportConfig = require('./config/passport.js'),
+  session = require('express-session'),
+  userRoutes = require('./routes/users.js'),
+  cookieParser = require('cookie-parser'),
   PORT = process.env.PORT || 3000
 
 
 //database connection
-mongoose.connect('mogodb://localhost/project3', function(err) {
+mongoose.connect('mongodb://localhost/project3', function(err) {
     if (err) {
         console.log("Problem connecting to Mongo. Check if mongod is activated")
     } else {
@@ -26,6 +31,15 @@ mongoose.connect('mogodb://localhost/project3', function(err) {
   app.use(logger('dev'));
   app.use(bodyParser.json()); //
   app.use(bodyParser.urlencoded({extend: true})); //
+  app.use(cookieParser())
+  app.use(session({
+  	secret: 'boomchakalaka',
+  	cookie: {maxAge: 6000000},
+  	resave: true,
+  	saveUninitialized: false
+  }))
+  app.use(passport.initialize())
+  app.use(passport.session())
 
 //settings
   app.set('view engine', 'ejs'); // to set the view engine which is EJS
@@ -47,7 +61,8 @@ app.get('/meetup/specificEvent', meetupRoutes);
 
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
-  res.send('Home!')
+  res.render('splash.ejs')
+
 })
 
 ///// INTERNAL ROUTES ////
@@ -94,8 +109,7 @@ app.get("/test", function(req, res) {
 
 })
 
-
-
+app.use('/', userRoutes)
 
 //server
 server.listen(PORT,function(err){
