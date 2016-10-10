@@ -1,10 +1,11 @@
 {
   "name": "project_3_nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "#### The purpose of the App is to give the user a way to centralize all his/her events. These events are either created by the user or added to his/her calendar through a third party API.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
