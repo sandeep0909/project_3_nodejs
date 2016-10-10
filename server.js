@@ -5,8 +5,8 @@ var
   logger = require('morgan'),
   ejsLayouts = require('express-ejs-layouts'),
   meetupRoutes = require('./routes/meetup.js'),
-  bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
+  bodyParser = require('body-parser'),
   server = require('http').createServer(app), //added incase we use websockets
   socket = require('socket.io')(server),
   request = require('request'),
@@ -38,11 +38,73 @@ mongoose.connect('mogodb://localhost/project3', function(err) {
 
 
 // Meetup routes
+// app.use('/meetup/categories', meetupRoutes);
 app.get('/meetup/categories', meetupRoutes);
 app.get('/meetup/cities', meetupRoutes);
 app.get('/meetup/topics', meetupRoutes);
 app.get('/meetup/openEvents', meetupRoutes);
 app.get('/meetup/specificEvent', meetupRoutes);
+
+app.get("/test", function(req, res) {
+var results = [[],[]];
+//setup for cities API
+  function cities(error, response, body) {
+    if(!error && response.statusCode === 200) {
+      var data = JSON.parse(body).results;
+      data.forEach(function(el) {
+          results[0].push({
+              cityId: el.id,
+              cityName: el.city,
+              zip: el.zip
+              })
+          })
+      }
+    request('https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b', categories);
+    }
+
+    //set up for categories API
+  function categories(error, response, body) {
+      if (!error && response.statusCode === 200) {
+        var data = JSON.parse(body).results;
+        data.forEach(function(el) {
+            results[1].push({
+                        catId: el.id,
+                        catName: el.shortname
+                          })
+                }) //categories are to be searched by id
+        }
+
+      // res.send(results);
+      res.render("meetup.ejs", {results: results})
+  }
+
+request('https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b', cities)
+
+})
+
+
+
+
+  //
+  // var callBackThree = function(error, resp, body) {
+  //   var results = [];
+  //   var data = (body);
+  //   console.log(data);
+  //   res.send(data);
+  // }
+
+  // var callbackTwo = function(error, resp, body) {
+  //   request("api.com/42", callBackThree);
+  // }
+  //
+  // var callBackOne = function(error, resp, body) {
+  //   request("meetup/categories", callBackThree);
+  // }
+
+  // request("/meetup/cities", callBackone);
+
+// })
+
 
 
 //server

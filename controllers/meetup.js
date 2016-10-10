@@ -1,5 +1,6 @@
 // var Meetup = require('../models/filename.js') //import required model
 var request = require('request')
+
 module.exports = {
 categories,
 cities,
@@ -7,6 +8,11 @@ topics,
 openEvents,
 specificEvent
 }
+
+
+
+
+
 
 function categories(req, res) {
     var apiurl = 'https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b'
@@ -20,16 +26,28 @@ function categories(req, res) {
                 }) //categories are to be searched by id
         })
         res.send(results)
+        // res.render("meetup.ejs", {results: results})
+        // res.render("meetup/categories", {results: results})
+        // res.render("meetup.ejs", {results: results})
     })
 }
 
-function cities(req, res){
-  var apiurl = 'https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b'
-  request.get(apiurl, function(err, response, body) {
-    var results = []
-    var data = JSON.parse(body).results;
-      res.send(data)
-  })
+function cities(req, res) {
+    var apiurl = 'https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b'
+    request.get(apiurl, function(err, response, body) {
+        var cityData = []
+        var data = JSON.parse(body).results;
+        data.forEach(function(el) {
+                cityData.push({
+                    id: el.id,
+                    city: el.city,
+                    zip: el.zip
+                })
+            })
+            console.log(cityData)
+            res.send(data)
+        // res.render("meetup.ejs", {cityData: cityData})
+    })
 }
 
 function topics(req, res) {
