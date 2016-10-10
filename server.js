@@ -45,6 +45,15 @@ app.get('/meetup/topics', meetupRoutes);
 app.get('/meetup/openEvents', meetupRoutes);
 app.get('/meetup/specificEvent', meetupRoutes);
 
+////// SANDEEP CHANGES HERE /////
+app.get('/',function(req,res){
+  res.send('Home!')
+})
+
+///// INTERNAL ROUTES ////
+
+
+
 app.get("/test", function(req, res) {
     var results = [ [], [], [] ];
 
