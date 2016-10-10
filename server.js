@@ -14,7 +14,7 @@ var
 
 
 //database connection
-mongoose.connect('mogodb://localhost/project3', function(err) {
+mongoose.connect('mongodb://localhost/project3', function(err) {
     if (err) {
         console.log("Problem connecting to Mongo. Check if mongod is activated")
     } else {
@@ -47,7 +47,7 @@ app.get('/meetup/specificEvent', meetupRoutes);
 
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
-  res.send('Home!')
+  res.send('Home123!')
 })
 
 ///// INTERNAL ROUTES ////
