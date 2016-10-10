@@ -47,7 +47,8 @@ app.get('/meetup/specificEvent', meetupRoutes);
 
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
-  res.send('Home123!')
+  res.render('splash.ejs')
+
 })
 
 ///// INTERNAL ROUTES ////
@@ -93,9 +94,6 @@ app.get("/test", function(req, res) {
     request('https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b', cities)
 
 })
-
-
-
 
 //server
 server.listen(PORT,function(err){
