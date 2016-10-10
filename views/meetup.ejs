@@ -4,8 +4,17 @@
 <div class="form-group">
   <label for="sel1">Select Category:</label>
   <select class="form-control" id="sel1">
-    <% results.forEach(function(el) { %>
-    <option><%= el.category %></option>
+    <% results[1].forEach(function(el) { %>
+    <option><%= el.catName %></option>
+      <% }) %>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="sel1">Select Cities:</label>
+  <select class="form-control" id="sel1">
+    <%  results[0].forEach(function(el) { %>
+    <option><%= el.cityName%></option>
       <% }) %>
   </select>
 </div>
