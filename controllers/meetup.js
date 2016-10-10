@@ -1,5 +1,6 @@
 // var Meetup = require('../models/filename.js') //import required model
 var request = require('request')
+
 module.exports = {
 categories,
 cities,
@@ -19,7 +20,9 @@ function categories(req, res) {
                     category: el.shortname
                 }) //categories are to be searched by id
         })
-        res.send(results)
+        // res.send(results)
+        res.render("meetup.ejs", {results: results})
+        // res.render("meetup/categories", {results: results})
     })
 }
 

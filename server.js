@@ -5,8 +5,8 @@ var
   logger = require('morgan'),
   ejsLayouts = require('express-ejs-layouts'),
   meetupRoutes = require('./routes/meetup.js'),
-  bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
+  bodyParser = require('body-parser'),
   server = require('http').createServer(app), //added incase we use websockets
   socket = require('socket.io')(server),
   request = require('request'),
@@ -38,6 +38,7 @@ mongoose.connect('mogodb://localhost/project3', function(err) {
 
 
 // Meetup routes
+// app.use('/meetup/categories', meetupRoutes);
 app.get('/meetup/categories', meetupRoutes);
 app.get('/meetup/cities', meetupRoutes);
 app.get('/meetup/topics', meetupRoutes);
