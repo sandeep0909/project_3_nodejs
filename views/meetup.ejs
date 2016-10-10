@@ -1,1 +1,11 @@
 <h1>Hello Topics</h1>
+
+
+<div class="form-group">
+  <label for="sel1">Select Category:</label>
+  <select class="form-control" id="sel1">
+    <% results.forEach(function(el) { %>
+    <option><%= el.category %></option>
+      <% }) %>
+  </select>
+</div>
