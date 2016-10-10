@@ -19,7 +19,7 @@ var
 
 
 //database connection
-mongoose.connect('mogodb://localhost/project3', function(err) {
+mongoose.connect('mongodb://localhost/project3', function(err) {
     if (err) {
         console.log("Problem connecting to Mongo. Check if mongod is activated")
     } else {
@@ -62,6 +62,7 @@ app.get('/meetup/specificEvent', meetupRoutes);
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
   res.render('splash.ejs')
+
 })
 
 ///// INTERNAL ROUTES ////
@@ -109,7 +110,6 @@ app.get("/test", function(req, res) {
 })
 
 app.use('/', userRoutes)
-
 
 //server
 server.listen(PORT,function(err){
