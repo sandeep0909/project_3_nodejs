@@ -6,5 +6,8 @@ module.exports = {
     res.render('login')
   },
 
-  login: ''
+  login: passport.authenticate('local-login', {
+    successRedirect: '/profile',
+    failureRedirect: '/login'
+  })
 }

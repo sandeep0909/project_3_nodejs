@@ -7,17 +7,14 @@ var
 
 userRouter.route('/login')
   .get(usersCtrl.showLogin)
-  .post(passport.authenticate('local-login', {
-    successRedirect: '/profile',
-    failureRedirect: '/login'
-  }))
+  .post(usersCtrl.login)
 
 userRouter.route('/signup')
   .get(function(req, res) {
     res.render('signup')
   })
   .post(passport.authenticate('local-signup', {
-    successRedirect: '/profile',
+    successRedirect: '/meetup/categories',
     failureRedirect: '/signup'
   }))
 
