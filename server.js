@@ -47,7 +47,7 @@ app.get('/meetup/specificEvent', meetupRoutes);
 
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
-  res.send('Home!')
+  res.render('splash.ejs')
 })
 
 ///// INTERNAL ROUTES ////
