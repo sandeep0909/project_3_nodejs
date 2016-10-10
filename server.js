@@ -46,64 +46,45 @@ app.get('/meetup/openEvents', meetupRoutes);
 app.get('/meetup/specificEvent', meetupRoutes);
 
 app.get("/test", function(req, res) {
-var results = [[],[]];
-//setup for cities API
-  function cities(error, response, body) {
-    if(!error && response.statusCode === 200) {
-      var data = JSON.parse(body).results;
-      data.forEach(function(el) {
-          results[0].push({
-              cityId: el.id,
-              cityName: el.city,
-              zip: el.zip
-              })
-          })
-      }
-    request('https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b', categories);
+    var results = [ [], [], [] ];
+
+    //setup for cities API
+    function cities(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            var data = JSON.parse(body).results;
+            data.forEach(function(el) {
+                results[0].push({
+                    cityId: el.id,
+                    cityName: el.city,
+                    zip: el.zip
+                })
+            })
+        }
+        request('https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b', categories);
     }
 
     //set up for categories API
-  function categories(error, response, body) {
-      if (!error && response.statusCode === 200) {
-        var data = JSON.parse(body).results;
-        data.forEach(function(el) {
-            results[1].push({
+    function categories(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            var data = JSON.parse(body).results;
+            data.forEach(function(el) {
+                    results[1].push({
                         catId: el.id,
                         catName: el.shortname
-                          })
+                    })
                 }) //categories are to be searched by id
         }
 
-      // res.send(results);
-      res.render("meetup.ejs", {results: results})
-  }
+        // res.send(results);
+        res.render("meetup.ejs", {
+            results: results
+        })
+    }
 
-request('https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b', cities)
+    request('https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b', cities)
 
 })
 
-
-
-
-  //
-  // var callBackThree = function(error, resp, body) {
-  //   var results = [];
-  //   var data = (body);
-  //   console.log(data);
-  //   res.send(data);
-  // }
-
-  // var callbackTwo = function(error, resp, body) {
-  //   request("api.com/42", callBackThree);
-  // }
-  //
-  // var callBackOne = function(error, resp, body) {
-  //   request("meetup/categories", callBackThree);
-  // }
-
-  // request("/meetup/cities", callBackone);
-
-// })
 
 
 

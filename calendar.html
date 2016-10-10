@@ -4,91 +4,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel='stylesheet' href='public/css/fullcalendar.css'/>
+  <link rel='stylesheet' href='public/css/lib/fullcalendar.css'/>
   <script src='public/js/lib/jquery.min.js'></script>
   <script src='public/js/lib/moment.min.js'></script>
-  <script src='calendar.js'></script>
-<script>
-  $(document).ready(function() {
+  <script src='public/js/lib/fullcalendar.js'></script>
 
-  		$('#calendar').fullCalendar({
-  			header: {
-  				left: 'prev,next today',
-  				center: 'title',
-  				right: 'month,agendaWeek,agendaDay'
-  			},
-  			defaultDate: '2016-10-01',
-  			defaultView: 'month',
-  			editable: true,
-  			events: [
-  				{
-  					title: 'All Day Event',
-  					start: '2016-10-01'
-  				},
-  				{
-  					title: 'Long Event',
-  					start: '2016-10-07',
-  					end: '2016-10-10'
-  				},
-  				{
-  					id: 999,
-  					title: 'Repeating Event',
-  					start: '2016-10-09T16:00:00'
-  				},
-  				{
-  					id: 999,
-  					title: 'Repeating Event',
-  					start: '2016-10-16T16:00:00'
-  				},
-  				{
-  					title: 'Meeting',
-  					start: '2016-10-12T10:30:00',
-  					end: '2016-10-12T12:30:00'
-  				},
-  				{
-  					title: 'Lunch',
-  					start: '2016-10-12T12:00:00'
-  				},
-  				{
-  					title: 'Birthday Party',
-  					start: '2016-10-13T07:00:00'
-  				},
-  				{
-  					title: 'Click for Google',
-  					url: 'http://google.com/',
-  					start: '2016-10-28'
-  				}
-  			]
-  		});
+  <script>
+    $(document).ready(function() {
+
+    		$('#calendar').fullCalendar({
+    			header: {
+    				left: 'prev,next today',
+    				center: 'title',
+    				right: 'month,agendaWeek,agendaDay'
+    			},
+    			defaultDate: '2016-10-01',
+    			defaultView: 'month',
+    			editable: true,
+    			events: [
+    				{
+    					title: 'All Day Event',
+    					start: '2016-10-01'
+    				},
+    				{
+    					title: 'Long Event',
+    					start: '2016-10-07',
+    					end: '2016-10-10'
+    				},
+    				{
+    					id: 999,
+    					title: 'Repeating Event',
+    					start: '2016-10-09T16:00:00'
+    				},
+    				{
+    					id: 999,
+    					title: 'Repeating Event',
+    					start: '2016-10-16T16:00:00'
+    				},
+    				{
+    					title: 'Meeting',
+    					start: '2016-10-12T10:30:00',
+    					end: '2016-10-12T12:30:00'
+    				},
+    				{
+    					title: 'Lunch',
+    					start: '2016-10-12T12:00:00'
+    				},
+    				{
+    					title: 'Birthday Party',
+    					start: '2016-10-13T07:00:00'
+    				},
+    				{
+    					title: 'Click for Google',
+    					url: 'http://google.com/',
+    					start: '2016-10-28'
+    				}
+    			]
+    		});
 
 
-      $('#calendar').fullCalendar({
-          // put your options and callbacks here
-      })
-
-  });
-  </script>
-  <style type='text/css'>
-
-  	body {
-  		margin-top: 40px;
-  		text-align: center;
-  		font-size: 14px;
-  		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-  	}
-
-  	#calendar {
-  		width: 900px;
-  		margin: 0 auto;
-  	}
-
-  </style>
-
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+        });
+})
+</script>
 
 </head>
+
 <body>
 
 <div id='calendar'></div>
+
+
 
 </body>
 </html>
