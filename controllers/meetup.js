@@ -75,14 +75,20 @@ function openEvents(req, res) {
 
 function specificEvent(req, res) {
     //https/urlname/events/eventid?&key
-    var apiurl = 'https://api.meetup.com/Square-Dance-in-West-LA/events/tjfzxlywcbgb?&key=6f5a18185325c31113220103533684b'
-    request.get(apiurl, function(err, response, body) {
+    var urlprefix = 'https://api.meetup.com/'
+    var urlname = 'build-with-code/'
+    var eventid = '234586692'
+    var apiKey = '?&key=6f5a18185325c31113220103533684b'
+    var url = urlprefix+urlname+'events/'+eventid+apiKey
+    // var apiurl = 'https://api.meetup.com/Square-Dance-in-West-LA/events/tjfzxlywcbgb?&key=6f5a18185325c31113220103533684b'
+    request.get(url, function(err, response, body) {
         var results = []
         var data = JSON.parse(body);
-        res.send(data)
-    })
+        console.log(data);
+        // res.send(data)
+        res.render("event.ejs", {data: data})
+})
 }
-
 // method to convert time field from API to a date string
 //   var timestamp = 1483585200000; //comes from the API response
 //   var date = new Date(timestamp-28800000);

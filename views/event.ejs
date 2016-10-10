@@ -1,0 +1,28 @@
+<h1>Single page view</h1>
+
+
+<ul class="list-group">
+  <li class="list-group-item">Hosted by: <%= data.group.name%></li>
+  <li class="list-group-item">Event Date:
+  <%= (new Date(data.time + data.utc_offset)).toISOString().match(/(\d{4}\-\d{2}\-\d{2})T(\d{2}:\d{2}:\d{2})/) %></li>
+  <li class="list-group-item">Event Name:<%= data.name %></li>
+  <li class="list-group-item">Status: <%= data.status%></li>
+  <li class="list-group-item">Venue: <%= data.venue.name%></li>
+  <li class="list-group-item">Address: <%= data.venue.address1%></li>
+  <li class="list-group-item">city: <%= data.venue.city%></li>
+  <li class="list-group-item">People going: <%= data.yes_rsvp_count%></li>
+
+</ul>
+<div id="log">
+<%- data.description %>
+</div>
+
+<%# var div = '<div></div>' %>
+<%# jQuery.parseHTML(data.description) %>
+<%# jQuery.parseHtml.replace(/'/, ' ') %>
+<%# var desired = str.replace(/[^\w\s]/gi, '') %>
+<%# var html = div %>
+<%# var div = $('body').createElement("div"); %>
+<%# div.innerHTML = html; %>
+<%# var text = div.textContent || div.innerText || ""; %>
+<%# html %>
