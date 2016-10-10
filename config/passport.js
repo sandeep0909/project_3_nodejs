@@ -32,7 +32,9 @@ passport.use('local-signup', new LocalStrategy({
     newUser.local.email = email
     newUser.local.password = newUser.generateHash(password)
     newUser.save(function(err) {
+
       if(err) return console.log(err)
+      console.log("User saved, but is it moving forward?")
       return done(null, newUser)
     })
   })

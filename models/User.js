@@ -7,7 +7,7 @@ var
       name: String,
       email: String,
       password: String
-    }
+    },
     // _by: {type: mongoose.Schema.Types.ObjectId, ref: 'Event'},
     intEvents: [{type: mongoose.Schema.Types.ObjectId, ref: 'Event'}],
     extEvents:[{type: String}]
