@@ -83,7 +83,7 @@ app.get('/meetup/topics', meetupRoutes);
 app.get('/meetup/openEvents', meetupRoutes);
 app.get('/meetup/specificEvent', meetupRoutes);
 app.get('/hub', meetupRoutes);
-
+app.get('/test', meetupRoutes);
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
   res.render('splash.ejs')
@@ -91,46 +91,6 @@ app.get('/',function(req,res){
 })
 
 ///// INTERNAL ROUTES ////
-
-app.get("/test", function(req, res) {
-    var results = [ [], [], [] ];
-
-    //setup for cities API
-    function cities(error, response, body) {
-        if (!error && response.statusCode === 200) {
-            var data = JSON.parse(body).results;
-            data.forEach(function(el) {
-                results[0].push({
-                    cityId: el.id,
-                    cityName: el.city,
-                    zip: el.zip
-                })
-            })
-        }
-        request('https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b', categories);
-    }
-
-    //set up for categories API
-    function categories(error, response, body) {
-        if (!error && response.statusCode === 200) {
-            var data = JSON.parse(body).results;
-            data.forEach(function(el) {
-                    results[1].push({
-                        catId: el.id,
-                        catName: el.shortname
-                    })
-                }) //categories are to be searched by id
-        }
-
-        // res.send(results);
-        res.render("meetup.ejs", {
-            results: results
-        })
-    }
-
-    request('https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b', cities)
-
-})
 
 app.use('/', userRoutes)
 
