@@ -18,7 +18,11 @@ var
 userSchema.methods.generateHash = function(password){
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
 }
-
+userSchema.pre('save', function(next){
+  if(!this.isModified('local.password')) return next()
+  this.local.password = this.generateHash(this.local.password)
+  next()
+})
 userSchema.methods.validPassword = function(password){
     //this is to validate.
   return bcrypt.compareSync(password, this.local.password)
