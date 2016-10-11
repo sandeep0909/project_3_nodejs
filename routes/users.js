@@ -30,7 +30,7 @@ userRouter.route('/signup')
     res.render('signup')
   })
   .post(passport.authenticate('local-signup', {
-    successRedirect: '/meetup/categories',
+    successRedirect: '/',
     failureRedirect: '/signup'
   }))
 
@@ -39,12 +39,27 @@ userRouter.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile', {user: req.user})
 })
 
+userRouter.get('/profile/edit', function(req,res){
+  res.render('editProfile')
+})
 userRouter.get('/logout', function(req, res) {
   // destroy the session and redirect to the home page...
   req.logout()
   res.redirect('/')
 })
 
+userRouter.patch('/profile', function(req,res){
+  User.findById(req.user._id, function(err, user){
+    if(err) return console.log(err)
+    for(key in req.body.local){
+      if(req.body.local[key]) user.local[key] = req.body.local[key]
+    }
+    user.save(function(err){
+      res.redirect('/')
+    })
+    console.log(req.body)
+  })
+})
 
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()) return next()
