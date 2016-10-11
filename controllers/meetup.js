@@ -8,7 +8,8 @@ topics,
 openEvents,
 specificEvent,
 hub,
-test
+test,
+eventSearch
 }
 
 function categories(req, res) {
@@ -58,6 +59,19 @@ function topics(req, res) {
     })
 }
 
+function eventSearch(req, res) {
+    var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
+    request.get(apiurl, function(err, response, body) {
+        var results = []
+        var data = JSON.parse(body).results;
+        data.forEach(function(el){
+           results.push(el.name)
+        })
+        console.log(results)
+        res.send(results)
+    })
+}
+
 function openEvents(req, res) {
 
     var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
@@ -65,7 +79,7 @@ function openEvents(req, res) {
         var results = []
         var data = JSON.parse(body).results;
         data.forEach(function(el){
-           results.push(el.name)
+           results.push('<li>'+el.name +'</li>')
         })
         console.log(results)
         res.render("meetupsearch.ejs", {results: results})
@@ -95,7 +109,7 @@ function hub(req, res) {
 
 
 function test(req, res) {
-    var results = [ [], [], [] ];
+    var results = [ [''], [''], [''] ];
 
     function topics(error, response, body) {
         if (!error && response.statusCode === 200) {
@@ -108,7 +122,7 @@ function test(req, res) {
           })
         })
     }
-    console.log(data)
+    // console.log(data)
     request('https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b', cities);
   }
 

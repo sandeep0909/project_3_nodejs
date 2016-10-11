@@ -56,8 +56,6 @@ mongoose.connect('mongodb://localhost/project3', function(err) {
       next()
   })
 
-
-
   //////SETTING CURRENT USER
   app.use(function(req,res,next){
 	if(req.user) req.app.locals.currentUser = req.user
@@ -85,6 +83,7 @@ app.get('/meetup/openEvents', meetupRoutes);
 app.get('/meetup/specificEvent', meetupRoutes);
 app.get('/hub', meetupRoutes);
 app.get('/test', meetupRoutes);
+app.get('/meetup/eventSearch', meetupRoutes);
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
   res.render('splash.ejs')

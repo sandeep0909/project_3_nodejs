@@ -11,5 +11,6 @@ meetupRouter.get('/meetup/openEvents', meetupController.openEvents);
 meetupRouter.get('/meetup/specificEvent', meetupController.specificEvent);
 meetupRouter.get('/hub', meetupController.hub);
 meetupRouter.get('/test', meetupController.test);
+meetupRouter.get('/meetup/eventSearch', meetupController.eventSearch);
 // pagesRouter.get('/', pagesController.index);
  module.exports = meetupRouter
