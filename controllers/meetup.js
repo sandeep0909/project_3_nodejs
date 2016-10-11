@@ -90,7 +90,7 @@ function specificEvent(req, res) {
 }
 
 function hub(req, res) {
-  res.render("calendar.ejs")
+  res.render("hub.ejs")
 }
 
 
