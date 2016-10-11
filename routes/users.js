@@ -3,7 +3,23 @@ var
   express = require('express'),
   userRouter = express.Router(),
   passport = require('passport'),
-  usersCtrl = require('../controllers/users.js')
+  usersCtrl = require('../controllers/users.js'),
+  User = require('../models/User.js')
+
+  userRouter.route('/users')
+    // .get(usersCtrl.index)
+    .get(function(req,res){
+      User.find({},function(err,users){
+        if(err) return console.log(err)
+        res.json(users)
+      })
+    })
+  userRouter.route('/users/:id')
+    .get(function(req,res){
+      User.findById(req.params.id,function(err,user){
+        res.json(user)
+    })
+  })
 
 userRouter.route('/login')
   .get(usersCtrl.showLogin)

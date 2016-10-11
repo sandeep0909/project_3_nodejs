@@ -1,7 +1,10 @@
 var
   passport = require('passport')
+  User = require('../models/User.js')
+
 
 module.exports = {
+
   showLogin: function(req, res) {
     res.render('login')
   },

@@ -14,6 +14,7 @@ var
 	passportConfig = require('./config/passport.js'),
   session = require('express-session'),
   userRoutes = require('./routes/users.js'),
+  eventRoutes = require('./routes/events.js'),
   cookieParser = require('cookie-parser'),
   PORT = process.env.PORT || 3000
 
@@ -110,6 +111,7 @@ app.get("/test", function(req, res) {
 })
 
 app.use('/', userRoutes)
+app.use('/', eventRoutes)
 
 //server
 server.listen(PORT,function(err){
