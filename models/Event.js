@@ -3,9 +3,10 @@ var
   eventSchema = mongoose.Schema({
     name: {type: String, required: true},
     category: String,
+    description: String,
     external: Boolean,
-    date: Date,
-    time: Date,
+    edate: Date,
+    etime: Date,
     address: String,
 
     //users:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
