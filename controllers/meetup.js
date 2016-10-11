@@ -58,14 +58,14 @@ function topics(req, res) {
 }
 
 function openEvents(req, res) {
-    var apiurl = 'https://api.meetup.com/2/open_events?category=1&key=6f5a18185325c31113220103533684b'
+    var apiurl = 'https://api.meetup.com/2/open_events?category=34&key=6f5a18185325c31113220103533684b'
     request.get(apiurl, function(err, response, body) {
         var results = []
         var data = JSON.parse(body).results;
-        // data.forEach(function(el){
-        //    results.push(el.shortname)
-        // })
-        res.send(data)
+        data.forEach(function(el){
+           results.push(el.name)
+        })
+        res.render("meetupsearch.ejs", {results: results})
     })
 }
 
