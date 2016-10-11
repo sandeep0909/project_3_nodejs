@@ -1,55 +1,38 @@
-<h1>Single page view</h1>
 <div class="container">
+    <h1><%= data.name %></h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <div>
+          <h4> <%= data.group.name%></h4> <br>
+          <p><strong>Event Date: </strong>
+            <%= (new Date(data.time + data.utc_offset)).toISOString().match(/(\d{4}\-\d{2}\-\d{2})T(\d{2}:\d{2}:\d{2})/) %>
+          </p>
+          <p><strong>Status:  </strong><%= data.status%></p>
+        </div>
+          <hr>
+        <div>
+          <h4>Venue - </strong><%= data.venue.name%></h4> <br>
+              <p>Address: <%= data.venue.address_1%></li>
+              <p>City: <%= data.venue.city%></li>
+              <P>People Attending: <%= data.yes_rsvp_count%></li>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+            <%- data.description %>
+      </div>
 
 
-<div class="row">
-  <div class="col-md-3">
-    <ul class="list-group">
-      <span class="label label-primary">Hosted by: </span>
-      <li class="list-group-item">
-      <%= data.group.name%></li>
-      <span class="label label-primary">Event Date: </span>
-      <li class="list-group-item">
-      <%= (new Date(data.time + data.utc_offset)).toISOString().match(/(\d{4}\-\d{2}\-\d{2})T(\d{2}:\d{2}:\d{2})/) %></li>
-      <li class="list-group-item">Event Name:<%= data.name %></li>
-      <li class="list-group-item">Status: <%= data.status%></li>
-      <li class="list-group-item">Venue: <%= data.venue.name%></li>
-      <li class="list-group-item">Address: <%= data.venue.address1%></li>
-      <li class="list-group-item">city: <%= data.venue.city%></li>
-      <li class="list-group-item">People going: <%= data.yes_rsvp_count%></li>
-
-    </ul>
-  </div>
-  <div class="col-md-3">
-
-  </div>
-  <div class="col-md-6">
-
-  </div>
-
-
-</div>
-</div>
-<div id="log">
-<%- data.description %>
 </div>
 
 <div id="picture">
 
 </div>
 <script type="text/javascript">
-  var imgage = <% data.description %>;
-  var elements = $(image);
-  var found = $('img', elements);
-  console.log(elements)
-  $('#picture').append(found)
+    var imgage = <% data.description %>;
+    var elements = $(image);
+    var found = $('img', elements);
+    console.log(elements)
+    $('#picture').append(found)
 </script>
-<%# var div = '<div></div>' %>
-<%# jQuery.parseHTML(data.description) %>
-<%# jQuery.parseHtml.replace(/'/, ' ') %>
-<%# var desired = str.replace(/[^\w\s]/gi, '') %>
-<%# var html = div %>
-<%# var div = $('body').createElement("div"); %>
-<%# div.innerHTML = html; %>
-<%# var text = div.textContent || div.innerText || ""; %>
-<%# html %>
