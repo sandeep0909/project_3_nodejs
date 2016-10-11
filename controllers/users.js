@@ -10,7 +10,7 @@ module.exports = {
   },
 
   login: passport.authenticate('local-login', {
-    successRedirect: '/meetup/specificEvent',
+    successRedirect: '/hub',
     failureRedirect: '/login'
   })
 }
