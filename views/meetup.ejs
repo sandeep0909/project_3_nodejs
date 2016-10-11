@@ -1,5 +1,7 @@
 <h1>Hello Topics</h1>
 
+<div class="container">
+
 
 <div class="form-group">
   <label for="sel1">Select Category:</label>
@@ -11,10 +13,27 @@
 </div>
 
 <div class="form-group">
+  <label for="sel1">Select Topics:</label>
+  <select class="form-control" id="sel1">
+    <%  results[2].forEach(function(el) { %>
+    <option><%= el.urlkey%></option>
+      <% }) %>
+  </select>
+</div>
+
+<div class="form-group">
   <label for="sel1">Select Cities:</label>
   <select class="form-control" id="sel1">
     <%  results[0].forEach(function(el) { %>
     <option><%= el.cityName%></option>
       <% }) %>
   </select>
+</div>
+
+
+<div class="form-group">
+    <label for="InputZip">Zip Code</label>
+     <input type="zip" class="form-control" id="zipcode" placeholder="Zipcode">
+</div>
+
 </div>
