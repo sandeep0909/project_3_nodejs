@@ -6,13 +6,9 @@ categories,
 cities,
 topics,
 openEvents,
-specificEvent
+specificEvent,
+hub
 }
-
-
-
-
-
 
 function categories(req, res) {
     var apiurl = 'https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b'
@@ -89,6 +85,11 @@ function specificEvent(req, res) {
         res.render("event.ejs", {data: data})
 })
 }
+
+function hub(req, res) {
+  res.render("calendar.ejs")
+}
+
 // method to convert time field from API to a date string
 //   var timestamp = 1483585200000; //comes from the API response
 //   var date = new Date(timestamp-28800000);
