@@ -28,6 +28,7 @@ mongoose.connect('mongodb://localhost/project3', function(err) {
 })
 
 //middleware
+
   app.use(logger('dev'));
   app.use(bodyParser.json()); //
   app.use(bodyParser.urlencoded({extend: true})); //
@@ -41,6 +42,12 @@ mongoose.connect('mongodb://localhost/project3', function(err) {
   app.use(passport.initialize())
   app.use(passport.session())
 
+
+  app.use(function(req, res, next){
+      if(req.user) req.app.locals.currentUser = req.user
+      req.app.locals.loggedIn = !!req.user
+      next()
+  })
 //settings
   app.set('view engine', 'ejs'); // to set the view engine which is EJS
   app.use(ejsLayouts); //to use the layouts. Lets it know where to look for view like rails
