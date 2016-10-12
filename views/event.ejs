@@ -1,3 +1,25 @@
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Individual Event Page</h4>
+      </div>
+      <div class="modal-body">
+        Here, you'll see detailed information on the event you just clicked on. Interested? At the bottom of the page, you'll see a button labeled "Add Event!". Click that, and we'll attach this event to your profile. Be bold!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
     <h1><%= data.name %></h1>
     <hr>
