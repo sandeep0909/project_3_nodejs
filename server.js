@@ -76,14 +76,15 @@ mongoose.connect('mongodb://localhost/project3', function(err) {
 
 // Meetup routes
 // app.use('/meetup/categories', meetupRoutes);
-app.get('/meetup/categories', meetupRoutes);
-app.get('/meetup/cities', meetupRoutes);
-app.get('/meetup/topics', meetupRoutes);
-app.get('/meetup/openEvents', meetupRoutes);
-app.get('/meetup/specificEvent', meetupRoutes);
-app.get('/hub', meetupRoutes);
-app.get('/test', meetupRoutes);
-app.get('/meetup/eventSearch', meetupRoutes);
+// app.get('/meetup/categories', meetupRoutes);
+// app.get('/meetup/cities', meetupRoutes);
+// app.get('/meetup/topics', meetupRoutes);
+// app.get('/meetup/openEvents', meetupRoutes);
+// app.get('/meetup/specificEvent', meetupRoutes);
+// app.get('/hub', meetupRoutes);
+// app.get('/test', meetupRoutes);
+// app.get('/meetup/eventSearch', meetupRoutes);
+app.use('/', meetupRoutes)
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
   res.render('splash.ejs')

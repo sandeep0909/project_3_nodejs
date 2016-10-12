@@ -13,4 +13,8 @@ meetupRouter.get('/hub', meetupController.hub);
 meetupRouter.get('/test', meetupController.test);
 meetupRouter.get('/meetup/eventSearch', meetupController.eventSearch);
 // pagesRouter.get('/', pagesController.index);
+
+//ANDY BUTTON
+// meetupRouter.get('/addEvent', meetupController.addEvent)
+meetupRouter.post('/addEvent', meetupController.addEvent);
  module.exports = meetupRouter
