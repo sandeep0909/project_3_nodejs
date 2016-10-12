@@ -2,65 +2,14 @@
 var request = require('request')
 
 module.exports = {
-categories,
-cities,
-topics,
-openEvents,
 specificEvent,
 hub,
-test,
-eventSearch
+eventSearch,
+searchResults
 }
 
-function categories(req, res) {
-    var apiurl = 'https://api.meetup.com/2/categories?key=6f5a18185325c31113220103533684b'
-    request.get(apiurl, function(err, response, body) {
-        var results = [];
-        var data = JSON.parse(body).results;
-        data.forEach(function(el) {
-            results.push({
-                    id: el.id,
-                    category: el.shortname
-                }) //categories are to be searched by id
-        })
-        res.send(results)
-        // res.render("meetup.ejs", {results: results})
-        // res.render("meetup/categories", {results: results})
-        // res.render("meetup.ejs", {results: results})
-    })
-}
-
-function cities(req, res) {
-    var apiurl = 'https://api.meetup.com/2/cities?key=6f5a18185325c31113220103533684b'
-    request.get(apiurl, function(err, response, body) {
-        var cityData = []
-        var data = JSON.parse(body).results;
-        data.forEach(function(el) {
-                cityData.push({
-                    id: el.id,
-                    city: el.city,
-                    zip: el.zip
-                })
-            })
-            console.log(cityData)
-            res.send(data)
-        // res.render("meetup.ejs", {cityData: cityData})
-    })
-}
-
-function topics(req, res) {
-    var apiurl = 'https://api.meetup.com/topics?search=tech&key=6f5a18185325c31113220103533684b'
-    //limit results of fields = https://api.meetup.com/topics?search=tech&only=id,name
-    request.get(apiurl, function(err, response, body) {
-      // if(err) return console.log(err);
-      var results = []
-      var data = JSON.parse(body).results;
-        res.send(data)
-    })
-}
-
-function eventSearch(req, res) {
-    // console.log(req.query)
+function searchResults(req, res) {
+    console.log(req.query)
     var urlpath
     //
     if(req.query.category) {
@@ -95,19 +44,19 @@ function eventSearch(req, res) {
     })
 }
 
-function openEvents(req, res) {
-
-    var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
-    request.get(apiurl, function(err, response, body) {
-        var results = []
-        var data = JSON.parse(body).results;
-        data.forEach(function(el){
-           results.push('<li>'+el.name +'</li>')
-        })
-        console.log(results)
-        res.render("meetupsearch.ejs", {results: results})
-    })
-}
+// function openEvents(req, res) {
+//
+//     var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
+//     request.get(apiurl, function(err, response, body) {
+//         var results = []
+//         var data = JSON.parse(body).results;
+//         data.forEach(function(el){
+//            results.push('<li>'+el.name +'</li>')
+//         })
+//         console.log(results)
+//         res.render("meetupsearch.ejs", {results: results})
+//     })
+// }
 
 function specificEvent(req, res) {
     console.log(req.query.eventId)
@@ -130,7 +79,7 @@ function hub(req, res) {
   res.render("calendar.ejs")
 }
 
-function test(req, res) {
+function eventSearch(req, res) {
     var results = [ [''], [''], [''] ];
 
     function topics(error, response, body) {
