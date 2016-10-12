@@ -86,10 +86,11 @@ function eventSearch(req, res) {
           //  results.push(el.id)
            results.push({
              eventId: el.id,
-             name: el.name
+             name: el.name,
+             urlName: el.group.urlname
            })
         })
-        // console.log(results)
+        console.log(results)
         res.send(results)
     })
 }
@@ -109,12 +110,12 @@ function openEvents(req, res) {
 }
 
 function specificEvent(req, res) {
-    //https/urlname/events/eventid?&key
+    console.log(req.query.eventId)
     var urlprefix = 'https://api.meetup.com/'
     var urlname = 'build-with-code/'
     var eventid = '234586692'
     var apiKey = '?&key=6f5a18185325c31113220103533684b'
-    var url = urlprefix+urlname+'events/'+eventid+apiKey
+    var url = urlprefix+req.query.url+'/events/'+req.query.eventId+apiKey
     // var apiurl = 'https://api.meetup.com/Square-Dance-in-West-LA/events/tjfzxlywcbgb?&key=6f5a18185325c31113220103533684b'
     request.get(url, function(err, response, body) {
         var results = []
