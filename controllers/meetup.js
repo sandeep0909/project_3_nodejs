@@ -60,7 +60,7 @@ function topics(req, res) {
 }
 
 function eventSearch(req, res) {
-    console.log(req.query)
+    // console.log(req.query)
     var urlpath
     //
     if(req.query.category) {
@@ -75,7 +75,6 @@ function eventSearch(req, res) {
     var textsearch = '&text='+req.query.textsearch
     var key = '&key=6f5a18185325c31113220103533684b'
 
-
     // var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
     var apiurl = 'https://api.meetup.com/2/open_events?'+urlpath+city+zip+textsearch+key
     // console.log(urlpath)
@@ -84,7 +83,11 @@ function eventSearch(req, res) {
         var results = []
         var data = JSON.parse(body).results;
         data.forEach(function(el){
-           results.push(el.name)
+          //  results.push(el.id)
+           results.push({
+             eventId: el.id,
+             name: el.name
+           })
         })
         // console.log(results)
         res.send(results)
