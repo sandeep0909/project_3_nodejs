@@ -3,31 +3,30 @@ var
   Event = require('../models/Event.js')
 module.exports = {
 
+  new: function(req,res){
+    res.render('createEvent',{userId: req.params.id})
+
+  },
+
     index: function(req, res) {
         User.findById(req.params.id).populate('intEvents').exec(function(err, user) {
             //res.json(user.intEvents)
-            res.render('intEvents', {events: user.intEvents})
+            res.render('intEvents', {events: user.intEvents, user: user})
         })
 
     },
     create: function(req, res) {
-      console.log("Entering create");
+      console.log(req.body);
         User.findById(req.params.id, function(err, user) {
-          console.log(err);
-          console.log("User body is"+ user);
             var newEvent = new Event(req.body)
             newEvent._by = user._id
-            console.log("Event is"+ newEvent);
                 //populated _by with User Id
             newEvent.save(function(err) {
-              console.log("saving new event");
                 if (err) return console.log(err)
                 user.intEvents.push(newEvent)
-                console.log("pushing new event");
                 user.save(function(err) {
-                  console.log("saving event");
-                    res.json(user)
-                    console.log("saving new shfdkjdhfkjdshfkdsa");
+                  //res.json(user)
+                  res.redirect('/users/'+req.params.id+'/events')
                 })
             })
         })
@@ -36,7 +35,8 @@ module.exports = {
     show: function(req, res) {
         Event.findById(req.params.id, function(err, eventdata) {
             if (err) return console.log(err)
-            res.json(eventdata)
+            //res.json(eventdata)
+            res.render('internalEvent')
         })
     },
     update: function(req, res) {

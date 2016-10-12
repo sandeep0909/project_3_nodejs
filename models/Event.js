@@ -5,8 +5,8 @@ var
     category: String,
     description: String,
     external: Boolean,
-    edate: Date,
-    etime: Date,
+    eDate: String,
+    eTime: String,
     address: String,
 
     //users:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
