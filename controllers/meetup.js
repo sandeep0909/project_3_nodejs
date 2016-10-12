@@ -6,7 +6,8 @@ module.exports = {
 specificEvent,
 hub,
 eventSearch,
-searchResults
+searchResults,
+addEvent
 }
 
 function searchResults(req, res) {
