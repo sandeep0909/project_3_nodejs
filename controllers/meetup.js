@@ -44,19 +44,6 @@ function searchResults(req, res) {
     })
 }
 
-// function openEvents(req, res) {
-//
-//     var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
-//     request.get(apiurl, function(err, response, body) {
-//         var results = []
-//         var data = JSON.parse(body).results;
-//         data.forEach(function(el){
-//            results.push('<li>'+el.name +'</li>')
-//         })
-//         console.log(results)
-//         res.render("meetupsearch.ejs", {results: results})
-//     })
-// }
 
 function specificEvent(req, res) {
     console.log(req.query.eventId)
@@ -132,13 +119,3 @@ function eventSearch(req, res) {
     request('https://api.meetup.com/topics?key=6f5a18185325c31113220103533684b', topics)
 
 }
-
-
-
-// method to convert time field from API to a date string
-//   var timestamp = 1483585200000; //comes from the API response
-//   var date = new Date(timestamp-28800000);
-//   var iso = date.toISOString().match(/(\d{4}\-\d{2}\-\d{2})T(\d{2}:\d{2}:\d{2})/)
-//   console.log(iso[1] + ' ' + iso[2]);
-//
-// })
