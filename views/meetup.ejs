@@ -53,6 +53,7 @@
     var $zip = $('#zipcode');
     var $textsearch = $('#textSearch')
 
+    // search button
     $('#search-button').on('click', function(evt) {
       evt.preventDefault();
       $('#info').empty()
@@ -66,11 +67,18 @@
       var cb = function(data){
         console.log(data)
         data.forEach(function(el){
-            $('#info').append('<li id='+el.eventId+'>'+el.name+'</li><br>')
+            $('#info').append('<li id='+el.eventId+'><a href="#">'+el.name+'</a></li><br>')
 
         })
       };
       $.ajax(opts).done(cb);
     })
+
+    //li click funcionality
+      $('li').on('click', function(){
+        console.log($(this).attr('id'))
+        eventId = $(this).attr('id')
+      })
+
 
     </script>
