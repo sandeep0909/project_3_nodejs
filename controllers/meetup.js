@@ -68,7 +68,7 @@ function eventSearch(req, res) {
       }
     if( req.query.topic) {
     urlpath = urlpath + '&topic='+req.query.topic
-    }    
+    }
 
     var city = '&city='+req.query.city;
     var zip = '&zip='+req.query.zip;
@@ -78,8 +78,8 @@ function eventSearch(req, res) {
 
     // var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
     var apiurl = 'https://api.meetup.com/2/open_events?'+urlpath+city+zip+textsearch+key
-    console.log(urlpath)
-    console.log(apiurl)
+    // console.log(urlpath)
+    // console.log(apiurl)
     request.get(apiurl, function(err, response, body) {
         var results = []
         var data = JSON.parse(body).results;
