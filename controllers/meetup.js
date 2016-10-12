@@ -84,7 +84,11 @@ function eventSearch(req, res) {
         var results = []
         var data = JSON.parse(body).results;
         data.forEach(function(el){
-           results.push(el.name)
+          //  results.push(el.id)
+           results.push({
+             eventId: el.id,
+             name: el.name
+           })
         })
         // console.log(results)
         res.send(results)

@@ -27,7 +27,8 @@
             <label for="InputZip">Zip Code</label>
             <input type="zip" class="form-control" id="zipcode" placeholder="Zipcode">
               <br>
-            <button id="search-button" type="button" class="btn btn-primary">Search</button>
+            <button id="search-button" type="button" class="btn btn-success">Start Search</button>
+            <button id="clearsearch" type="button" class="btn btn-info">Clear Search</button>
         </div>
 
         <div class="row" >
@@ -63,9 +64,10 @@
         data: {category: category, topic: $topic.val(), city: $city.val(), zip: $zip.val(), textsearch: $textsearch.val()}
       };
       var cb = function(data){
-        // console.log(data)
+        console.log(data)
         data.forEach(function(el){
-            $('#info').append('<li>'+el+'</li><br>')
+            $('#info').append('<li id='+el.eventId+'>'+el.name+'</li><br>')
+
         })
       };
       $.ajax(opts).done(cb);
