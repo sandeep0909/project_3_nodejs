@@ -21,8 +21,6 @@ var
   PORT = process.env.PORT || 3000
   var mongoConnectionString = 'mongodb://localhost/passport-authentication'
 
-
-
 //database connection
 mongoose.connect('mongodb://localhost/project3', function(err) {
     if (err) {
@@ -46,23 +44,21 @@ mongoose.connect('mongodb://localhost/project3', function(err) {
   	saveUninitialized: false,
     store: new MongoStore({url: mongoConnectionString})
   }))
-  app.use(passport.initialize())
-  app.use(passport.session())
-
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   app.use(function(req, res, next){
       if(req.user) req.app.locals.currentUser = req.user
       req.app.locals.loggedIn = !!req.user
       next()
-  })
+  });
 
   //////SETTING CURRENT USER
   app.use(function(req,res,next){
 	if(req.user) req.app.locals.currentUser = req.user
 	req.app.locals.loggedIn = !!req.user
 	next()
-})
-
+});
 
 //settings
   app.set('view engine', 'ejs'); // to set the view engine which is EJS
