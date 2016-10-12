@@ -29,7 +29,14 @@
 <div id="picture">
 
 </div>
-<button type="submit" class="btn btn-success btn-lg">Add Event!</button>
+
+<form action="/addEvent" method="POST">
+  <input type="hidden" name="name" value="<%= data.name %>">
+  <input type="hidden" name="extId" value="<%= data.id %>">
+  <input type="hidden" name="description" value="<%= data.description %>">
+  <button type="submit" class="btn btn-success btn-lg">Add Event!</button>
+</form>
+
 <script type="text/javascript">
     var imgage = <% data.description %>;
     var elements = $(image);

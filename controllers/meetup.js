@@ -1,5 +1,6 @@
 // var Meetup = require('../models/filename.js') //import required model
 var request = require('request')
+var Event = require('../models/Event.js')
 
 module.exports = {
 categories,
@@ -9,7 +10,8 @@ openEvents,
 specificEvent,
 hub,
 test,
-eventSearch
+eventSearch,
+addEvent
 }
 
 function categories(req, res) {
@@ -183,7 +185,18 @@ function test(req, res) {
 
 }
 
-
+function addEvent(req, res){
+  console.log(req.body)
+  var eventProps = {
+    name: req.body.name,
+    evtId: req.body.evtId,
+    external: true,
+    description: req.body.description
+  }
+  Event.create(eventProps, function(err, event) {
+    res.render('addEvent.ejs', {event: event})
+  })
+}
 
 // method to convert time field from API to a date string
 //   var timestamp = 1483585200000; //comes from the API response
