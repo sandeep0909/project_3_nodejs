@@ -60,25 +60,22 @@
       var opts =
       {
         method: 'GET',
-        url: '/meetup/eventSearch',
+        url: '/meetup/searchResults',
         contentType: 'application/json',
         data: {category: category, topic: $topic.val(), city: $city.val(), zip: $zip.val(), textsearch: $textsearch.val()}
       };
       var cb = function(data){
-        console.log(data)
+        // console.log(data)
         data.forEach(function(el){
-            $('#info').append('<li id='+el.eventId+'><a href="#">'+el.name+'</a></li><br>')
+            $('#info').append('<li id='+el.urlName+'/events/'+el.eventId+'><a href="/meetup/specificEvent?url='+el.urlName+'&eventId='+el.eventId+'">'+el.name+'</a></li><br>')
 
         })
       };
       $.ajax(opts).done(cb);
     })
 
-    //li click funcionality
-      $('li').on('click', function(){
-        console.log($(this).attr('id'))
-        eventId = $(this).attr('id')
-      })
+
+
 
 
     </script>

@@ -8,7 +8,7 @@ var express = require('express'),
 
     eventRouter.route('/users/:id/events/new')
       .get(eventsController.new)
-    
+
     eventRouter.route('/users/:id/events')
         .get(eventsController.index)
         .post(eventsController.create)
@@ -45,11 +45,16 @@ var express = require('express'),
     //       })
     //   })
 
-    eventRouter.route('/users/:id/events/:id')
-        .get(eventsController.show)
-        .patch(eventsController.update)
-        .delete(eventsController.destroy)
+    //eventRouter.route('/users/:id/events/:eventId')//This is needed when the events are embeded inside
 
+
+
+    eventRouter.route('/events/:eventId/edit')
+      .get(eventsController.edit)
+    eventRouter.route('/events/:eventId')
+      .patch(eventsController.update)
+      .delete(eventsController.destroy)
+      .get(eventsController.show)
     // eventRouter.get('/users/:id/events/:eventid',function(req, res) {
     //   Event.findById(req.params.eventid, function(err, eventdata) {
     //         if (err) return console.log(err)

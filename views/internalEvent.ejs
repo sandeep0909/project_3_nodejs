@@ -17,15 +17,23 @@
             <div class="thumbnail">
                 <img src="http://placehold.it/320x150" alt="">
                 <div class="caption">
-                    <h4 class="pull-right"><%= event.edate %></h4>
-                    <h4><%= event.name %></h4>
-                    <p><%= event.description %></p>
+                    <h4 class="pull-right"><%= eventData.edate %></h4>
+                    <h4><%= eventData.name %></h4>
+                    <p><%= eventData.description %></p>
                 </div>
             </div>
         </div>
         </div>
+        <a href='/events/<%=eventData._id%>/edit' class="btn btn-lg btn-primary">Update Event</a>
+        <form action="/events/<%=eventData._id%>?_method=DELETE" method="post">
+            <button type="submit" class="btn btn-lg btn-primary">Delete Event</button>
+        </form>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      console.log(event);
+    </script>
   </body>
 </html>

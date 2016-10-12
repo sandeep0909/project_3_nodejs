@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Update Event</title>
+
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form" action="/events/<%= event._id %>?_method=patch" method="post">
+        <h2 class="form-signin-heading">Update event</h2>
+        <label for="inputEvent" class="sr-only">Event Name</label>
+        <input type="event" value= "<%=event.name%>" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
+        <label for="inputdescription" class="sr-only">Description</label>
+        <input type="Description" id="inputDescription" name="description" class="form-control" placeholder="Description" required>
+
+        <label for="inputCategory" class="sr-only">Category</label>
+        <input type="Category" id="inputCategory" name="category" class="form-control" placeholder="Category" required>
+
+        <label for="inputdate" class="sr-only">date</label>
+        <input type="date" id="inputdate" name="eDate" class="form-control" placeholder="date" required>
+
+        <label for="inputTime" class="sr-only">Time</label>
+        <input type="Time" id="inputTime" name="eTime" class="form-control" placeholder="Time" required>
+
+        <label for="inputaddress" class="sr-only">address</label>
+        <input type="address" id="inputaddress" name="address" class="form-control" placeholder="address" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update Event</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js">
+
+    </script>
+  </body>
+</html>
