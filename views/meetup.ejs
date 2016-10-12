@@ -9,19 +9,19 @@
             <label for="sel1">Category:</label>
             <select class="form-control" id="category">
               <% results[1].forEach(function(el) { %>
-              <option><%= el.catName %></option>
+                <option id=<%= el.catId %>> <%= el.catName %></option>
               <% }) %>
             </select><br>
             <label for="sel1">  Topic:</label>
-            <select class="form-control" id="topics">
+            <select class="form-control" id="topic">
               <%  results[2].forEach(function(el) { %>
               <option><%= el.urlkey%></option>
               <% }) %>
             </select> <br>
             <label for="sel1">City:</label>
-            <select class="form-control" id="cities">
+            <select class="form-control" id="city">
               <%  results[0].forEach(function(el) { %>
-              <option><%= el.cityName%></option>
+              <option ><%= el.cityName%></option>
               <% }) %>
             </select> <br>
             <label for="InputZip">Zip Code</label>
@@ -41,23 +41,34 @@
 
     <script>
 
+    $('#category').change(function(){
+        category = $(this).find('option:selected').attr('id')
+        // console.log($(this).find('option:selected').attr('id'))
+    })
+
+    var category
+    var $topic = $('#topic');
+    var $city = $('#city');
+    var $zip = $('#zipcode');
+    var $textsearch = $('#textSearch')
+
     $('#search-button').on('click', function(evt) {
       evt.preventDefault();
+      $('#info').empty()
       var opts =
       {
         method: 'GET',
         url: '/meetup/eventSearch',
-
+        contentType: 'application/json',
+        data: {category: category, topic: $topic.val(), city: $city.val(), zip: $zip.val(), textsearch: $textsearch.val()}
       };
       var cb = function(data){
-        console.log(data)
+        // console.log(data)
         data.forEach(function(el){
             $('#info').append(el)
         })
       };
       $.ajax(opts).done(cb);
     })
-
-
 
     </script>

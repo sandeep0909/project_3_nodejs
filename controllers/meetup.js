@@ -60,14 +60,33 @@ function topics(req, res) {
 }
 
 function eventSearch(req, res) {
-    var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
+    console.log(req.query)
+    var urlpath
+    //
+    if(req.query.category) {
+    urlpath = '&category='+req.query.category
+      }
+    if( req.query.topic) {
+    urlpath = urlpath + '&topic='+req.query.topic
+    }    
+
+    var city = '&city='+req.query.city;
+    var zip = '&zip='+req.query.zip;
+    var textsearch = '&text='+req.query.textsearch
+    var key = '&key=6f5a18185325c31113220103533684b'
+
+
+    // var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
+    var apiurl = 'https://api.meetup.com/2/open_events?'+urlpath+city+zip+textsearch+key
+    console.log(urlpath)
+    console.log(apiurl)
     request.get(apiurl, function(err, response, body) {
         var results = []
         var data = JSON.parse(body).results;
         data.forEach(function(el){
            results.push(el.name)
         })
-        console.log(results)
+        // console.log(results)
         res.send(results)
     })
 }
@@ -100,13 +119,12 @@ function specificEvent(req, res) {
         console.log(data);
         // res.send(data)
         res.render("event.ejs", {data: data})
-})
+      })
 }
 
 function hub(req, res) {
   res.render("calendar.ejs")
 }
-
 
 function test(req, res) {
     var results = [ [''], [''], [''] ];
