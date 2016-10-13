@@ -7,7 +7,8 @@ specificEvent,
 hub,
 eventSearch,
 searchResults,
-addEvent
+addEvent,
+eventIndex
 }
 
 function searchResults(req, res) {
@@ -45,7 +46,6 @@ function searchResults(req, res) {
         res.send(results)
     })
 }
-
 
 function specificEvent(req, res) {
     console.log(req.query.eventId)
@@ -134,4 +134,8 @@ function addEvent(req, res){
   Event.create(eventProps, function(err, event) {
     res.render('addEvent.ejs', {event: event})
   })
+}
+
+function eventIndex(req, res) {
+
 }
