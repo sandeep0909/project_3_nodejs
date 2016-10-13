@@ -1,0 +1,92 @@
+/*.navbar{
+  margin-bottom: 40px;
+}
+.container-fluid {
+  margin-top: 20px;
+}*/
+
+  .splashJumbo {
+    /*background-image: url('/images/dancing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    height: 400px;
+    width: 400;
+    background-color: rgba(30,30,30,.3);
+    color: white;
+  }
+
+  .splash-btn {
+    width: 200px;
+    height: 80px;
+    font-size: 25px;
+    line-height: 80px;
+    margin: 20px;
+    padding: 0;
+  }
+
+  .splashTag {
+  /*border: 1px solid white;*/
+  width: 200px;
+  height: 150px;
+  margin: 10px;
+  line-height: 150px;
+  text-align: center;
+  font-size: 25px;
+
+}
+
+  .splashTag1 {
+  background-color: #FDB632;
+}
+
+  .splashTag2 {
+  background-color: #801638;
+}
+
+  .splashTag3 {
+  background-color: #027878;
+}
+
+  .splash-h4 {
+    font-size: 35px;
+  }
+
+  .loginJumbo {
+    height: 600px;
+    width: 600;
+    background-color: rgba(51,51,51,.8);
+    color: white;
+  }
+
+.searchLeft {
+  border: solid 1px grey;
+  margin-left: 20px;
+  padding: 10px;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+}
+
+.searchRight {
+     position: relative;
+     background: #FFF;
+     /*overflow: auto;*/
+     z-index: 1;
+     left: 280px;
+     width: 800px;
+     heigth: 1000px;
+     padding: 10px;
+     margin-right: 20px;
+}
+
+.results {
+  position: relative;
+   left: 220px;
+   width: 100%;
+   height: 300px;
+
+}
+.container-fluid {
+  /*margin: 20px;*/
+
+}

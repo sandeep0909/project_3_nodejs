@@ -1,8 +1,9 @@
 
-<div class="container">
-    <h1>Seach for a meet up event</h1>
-    <div class="row">
-        <div class="form-group col-md-3">
+<div class="container-fluid">
+
+    <!-- <div class="row"> -->
+        <div class="form-group col-md-2  searchLeft">
+          <h1>Search Events</h1> <hr>
           <!-- <label for="SearchText">Text Search</label> -->
           <input type="zip" class="form-control" id="textSearch" placeholder="Search by phrase">
             <br>
@@ -27,20 +28,21 @@
             <label for="InputZip">Zip Code</label>
             <input type="zip" class="form-control" id="zipcode" placeholder="Zipcode">
               <br>
-            <button id="search-button" type="button" class="btn btn-success">Start Search</button>
-            <button id="clearsearch" type="button" class="btn btn-info">Clear Search</button>
+            <button id="search-button" type="button" class="btn btn-success">Search</button>
+            <button id="clearsearch" type="button" class="btn btn-info">Clear</button>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
+        </div>
+        <div class="form-group col-md-10 searchRight">
+
+          <ul id="info">
+        </ul>
+
         </div>
 
-        <div class="row" >
-            <div class="form-group col-md-8">
-              <ul id="info">
-            </ul>
-            </div>
-        </div>
-    </div>
+    <!-- </div> -->
 
-    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
 
+</div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -63,42 +65,42 @@
 
 
 
-    <script>
+  <script>
 
-    $('#category').change(function(){
-        category = $(this).find('option:selected').attr('id')
-        // console.log($(this).find('option:selected').attr('id'))
-    })
+    $('#category').change(function() {
+    category = $(this).find('option:selected').attr('id')
+  })
 
-    var category
-    var $topic = $('#topic');
-    var $city = $('#city');
-    var $zip = $('#zipcode');
-    var $textsearch = $('#textSearch')
+var category
+var $topic = $('#topic');
+var $city = $('#city');
+var $zip = $('#zipcode');
+var $textsearch = $('#textSearch')
 
-    // search button
-    $('#search-button').on('click', function(evt) {
-      evt.preventDefault();
-      $('#info').empty()
-      var opts =
-      {
+// search button
+$('#search-button').on('click', function(evt) {
+    evt.preventDefault();
+    $('#info').empty()
+    var opts = {
         method: 'GET',
         url: '/meetup/searchResults',
         contentType: 'application/json',
-        data: {category: category, topic: $topic.val(), city: $city.val(), zip: $zip.val(), textsearch: $textsearch.val()}
-      };
-      var cb = function(data){
+        data: {
+            category: category,
+            topic: $topic.val(),
+            city: $city.val(),
+            zip: $zip.val(),
+            textsearch: $textsearch.val()
+        }
+    };
+    var cb = function(data) {
         // console.log(data)
-        data.forEach(function(el){
-            $('#info').append('<li id='+el.urlName+'/events/'+el.eventId+'><a href="/meetup/specificEvent?url='+el.urlName+'&eventId='+el.eventId+'">'+el.name+'</a></li><br>')
+        data.forEach(function(el) {
+            $('#info').append('<li id=' + el.urlName + '/events/' + el.eventId + '><a href="/meetup/specificEvent?url=' + el.urlName + '&eventId=' + el.eventId + '">' + el.name + '</a></li><br>')
 
         })
-      };
-      $.ajax(opts).done(cb);
-    })
-
-
-
-
+    };
+    $.ajax(opts).done(cb);
+})
 
     </script>

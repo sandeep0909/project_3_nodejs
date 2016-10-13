@@ -51,7 +51,6 @@ module.exports = {
       })
     },
     update: function(req, res) {
-        console.log("Trying to get the bodyyyyyyyyy")
         Event.findByIdAndUpdate(req.params.eventId, req.body, {new: true},
             function(err, eventData) {
             //res.json({message: "Event updated!", event:event})
@@ -59,6 +58,7 @@ module.exports = {
         })
     },
     destroy: function(req, res){
+      console.log("entering Delete");
      Event.findById(req.params.eventId, function(err, event){
        if(err) return console.log(err)
        event.remove(function(err) {
@@ -67,7 +67,8 @@ module.exports = {
            if(err) return console.log(err)
            user.update({$pull: {paths: req.params.id}}, function(err){
              if(err) return console.log(err)
-             res.redirect('/users/'+req.params.id+'/events')
+             //res.redirect('/users/'+req.params.id+'/events')
+             res.redirect('../hub')
            })
          })
        })
