@@ -127,6 +127,7 @@ function addEvent(req, res){
   var eventProps = {
     name: req.body.name,
     evtId: req.body.evtId,
+    extId: req.body.extId,
     external: true,
     description: req.body.description
   }
