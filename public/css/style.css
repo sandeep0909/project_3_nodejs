@@ -14,8 +14,9 @@
   max-width: 200px;
 }
 
-  #events{
-    /*opacity: 0.8;*/
+
+  body{
+    background-image: url(/images/rainbow.png);
   }
   .splashJumbo {
     /*background-image: url('/images/dancing.jpg');
