@@ -4,7 +4,9 @@
 .container-fluid {
   margin-top: 20px;
 }*/
-
+  body{
+    background-image: url(/images/rainbow.png);
+  }
   .splashJumbo {
     /*background-image: url('/images/dancing.jpg');
     background-repeat: no-repeat;

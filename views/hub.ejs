@@ -1,71 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 
-  <script>
-    $(document).ready(function() {
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    		$('#calendar').fullCalendar({
-    			header: {
-    				left: 'prev,next today',
-    				center: 'title',
-    				right: 'month,agendaWeek,agendaDay'
-    			},
-    			defaultDate: '2016-10-01',
-    			defaultView: 'month',
-    			editable: true,
-    			events: [
-    				{
-    					title: 'All Day Event',
-    					start: '2016-10-01'
-    				},
-    				{
-    					title: 'Long Event',
-    					start: '2016-10-07',
-    					end: '2016-10-10'
-    				},
-    				{
-    					id: 999,
-    					title: 'Repeating Event',
-    					start: '2016-10-09T16:00:00'
-    				},
-    				{
-    					id: 999,
-    					title: 'Repeating Event',
-    					start: '2016-10-16T16:00:00'
-    				},
-    				{
-    					title: 'Meeting',
-    					start: '2016-10-12T10:30:00',
-    					end: '2016-10-12T12:30:00'
-    				},
-    				{
-    					title: 'Lunch',
-    					start: '2016-10-12T12:00:00'
-    				},
-    				{
-    					title: 'Birthday Party',
-    					start: '2016-10-13T07:00:00'
-    				},
-    				{
-    					title: 'Click for Google',
-    					url: 'http://google.com/',
-    					start: '2016-10-28'
-    				}
-    			]
-    		});
+    <title>Conduit Hub</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        $('#calendar').fullCalendar({
-            // put your options and callbacks here
-        });
-})
-</script>
+    <!-- Custom CSS -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <body>
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
+<!-- Page Content -->
+    <div class="container">
 
-<div id='calendar'></div>
+        <div class="row">
 
+            <div class="col-lg-12">
+                <h1 class="page-header">Conduit Hub</h1>
+            </div>
 
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/hubmeetup.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/ticketmaster.jpg"alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/users/:id/events/new'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href='/meetup/eventSearch'>
+                    <img class="img-responsive" src="/images/apiholder.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Conduit 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Welcome!</h4>
+          </div>
+          <div class="modal-body">
+            This is your Hub. From here, you can easily navigate to any of the API's we've provided by clicking on its logo. If you can't find what you're looking for, try the dropdown menus in your navigation bar and you'll be on your way.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
+
+</html>
