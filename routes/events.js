@@ -5,7 +5,6 @@ var express = require('express'),
     User = require('../models/User.js'),
     Event = require('../models/Event.js')
 
-
 eventRouter.route('/users/:id/events/new')
     .get(eventsController.new)
 

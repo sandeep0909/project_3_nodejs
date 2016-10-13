@@ -33,9 +33,11 @@
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
         </div>
         <div class="form-group col-md-10 searchRight">
+          <div id="resultsSection">
+            <ul id="info">
+          </ul>
+          </div>
 
-          <ul id="info">
-        </ul>
 
         </div>
 
@@ -94,7 +96,7 @@ $('#search-button').on('click', function(evt) {
         }
     };
     var cb = function(data) {
-        // console.log(data)
+        console.log(data)
         data.forEach(function(el) {
             $('#info').append('<li id=' + el.urlName + '/events/' + el.eventId + '><a href="/meetup/specificEvent?url=' + el.urlName + '&eventId=' + el.eventId + '">' + el.name + '</a></li><br>')
 
