@@ -16,7 +16,6 @@
   </head>
 
   <body>
-
     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
 
     <!-- Modal -->
@@ -41,25 +40,31 @@
 
 
     <div class="container">
-
+      <div>
+      <td>
+          <a href='/users/<%= currentUser._id%>/events' class="btn btn-lg btn-primary">Back</a><hr>
+      </td>
+    </div>
       <form class="form" action="/users/<%= userId %>/events" method="post">
         <h2 class="form-signin-heading">Create your event</h2>
         <label for="inputEvent" class="sr-only">Event Name</label>
         <input type="event" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
+        <label for="inputimg" class="sr-only">Image</label>
+        <input type="inputimg" id="inputimg" name="img" class="form-control" placeholder="Event img" >
         <label for="inputdescription" class="sr-only">Description</label>
-        <input type="Description" id="inputDescription" name="description" class="form-control" placeholder="Description" required>
+        <input type="Description" id="inputDescription" name="description" class="form-control" placeholder="Description" >
 
         <label for="inputCategory" class="sr-only">Category</label>
-        <input type="Category" id="inputCategory" name="category" class="form-control" placeholder="Category" required>
+        <input type="Category" id="inputCategory" name="category" class="form-control" placeholder="Category" >
 
         <label for="inputdate" class="sr-only">date</label>
-        <input type="date" id="inputdate" name="eDate" class="form-control" placeholder="date" required>
+        <input type="date" id="inputdate" name="eDate" class="form-control" placeholder="date" >
 
         <label for="inputTime" class="sr-only">Time</label>
-        <input type="Time" id="inputTime" name="eTime" class="form-control" placeholder="Time" required>
+        <input type="Time" id="inputTime" name="eTime" class="form-control" placeholder="Time" >
 
         <label for="inputaddress" class="sr-only">address</label>
-        <input type="address" id="inputaddress" name="address" class="form-control" placeholder="address" required>
+        <input type="address" id="inputaddress" name="address" class="form-control" placeholder="address" >
         <button class="btn btn-lg btn-primary btn-block" type="submit">Create Event</button>
       </form>
 
@@ -67,8 +72,8 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js">
-
+    <script type="text/javascript">
+      $('body').css('background-image', 'url("/images/fallevent.jpg")')
     </script>
   </body>
 </html>

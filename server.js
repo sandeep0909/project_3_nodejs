@@ -64,6 +64,7 @@ mongoose.connect('mongodb://localhost/project3', function(err) {
   app.set('view engine', 'ejs'); // to set the view engine which is EJS
   app.use(ejsLayouts); //to use the layouts. Lets it know where to look for view like rails
   app.use(express.static(__dirname + '/public')); // to get static public files
+  // app.use(express.static('/public')); // to get static public files
 
 
 //Meetup to routes

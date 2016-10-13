@@ -4,7 +4,16 @@
 .container-fluid {
   margin-top: 20px;
 }*/
+#datetime{
+  display: inline-block;
+}
+#event-desc {
+  max-width: calc(30em * 0.5);
+}
 
+  #events{
+    /*opacity: 0.8;*/
+  }
   .splashJumbo {
     /*background-image: url('/images/dancing.jpg');
     background-repeat: no-repeat;

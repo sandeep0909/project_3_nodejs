@@ -3,6 +3,7 @@ var
   eventSchema = mongoose.Schema({
     name: {type: String, required: true},
     category: String,
+    img: String,
     description: String,
     external: Boolean,
     eDate: String,

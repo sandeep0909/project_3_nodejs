@@ -67,8 +67,8 @@ module.exports = {
            if(err) return console.log(err)
            user.update({$pull: {paths: req.params.id}}, function(err){
              if(err) return console.log(err)
-             //res.redirect('/users/'+req.params.id+'/events')
-             res.redirect('../hub')
+             res.redirect('/users/'+user._id+'/events')
+             //res.redirect('../hub')
            })
          })
        })
