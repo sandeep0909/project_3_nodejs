@@ -12,6 +12,8 @@ eventRouter.route('/users/:id/events')
     .get(eventsController.index)
     .post(eventsController.create)
 
+eventRouter.route('/extEvents')
+    .get(eventsController.allExtEvents)
 
 eventRouter.route('/events/:eventId/edit')
     .get(eventsController.edit)

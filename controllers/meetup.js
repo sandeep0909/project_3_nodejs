@@ -71,6 +71,11 @@ function hub(req, res) {
   res.render("hub.ejs")
 }
 
+function hub(req, res) {
+  res.render("hub.ejs")
+}
+
+
 function eventSearch(req, res) {
     var results = [ [''], [''], [''] ];
     // console.log(currentUser._id);

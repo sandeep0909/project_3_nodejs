@@ -4,7 +4,7 @@ var
     name: {type: String, required: true},
     category: String,
     description: String,
-    external: Boolean,
+    external: {type: Boolean, default: false},
     eDate: String,
     eTime: String,
     address: String,
