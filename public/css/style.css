@@ -1,4 +1,4 @@
-  .jumbotron {
+  .splashJumbo {
     /*background-image: url('/images/dancing.jpg');
     background-repeat: no-repeat;
     background-size: cover;*/
@@ -17,7 +17,7 @@
     padding: 0;
   }
 
-.splashTag {
+  .splashTag {
   /*border: 1px solid white;*/
   width: 200px;
   height: 150px;
@@ -27,16 +27,26 @@
   font-size: 25px;
 
 }
-.splashTag1 {
+
+  .splashTag1 {
   background-color: #FDB632;
 }
-.splashTag2 {
+
+  .splashTag2 {
   background-color: #801638;
 }
-.splashTag3 {
+
+  .splashTag3 {
   background-color: #027878;
 }
 
-.splash-h4 {
-  font-size: 35px;
-}
+  .splash-h4 {
+    font-size: 35px;
+  }
+
+  .loginJumbo {
+    height: 600px;
+    width: 600;
+    background-color: rgba(51,51,51,.8);
+    color: white;
+  }
