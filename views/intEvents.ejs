@@ -28,12 +28,12 @@
       <% events.forEach(function(event){ %>
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                <img src=<%=event.img%> alt="">
+                <img src="<%= event.img || '/images/defaultImage.jpg'%>" alt="">
                 <div class="caption">
                     <h4 class="pull-right"><%= event.edate %></h4>
                     <h4><a href='/events/<%= event.id%>'><%= event.name %></a>
                     </h4>
-                    <p id='event-desc'><%= event.description %></p>
+                    <p id="event-desc"><%= event.description %></p>
                 </div>
             </div>
         </div>

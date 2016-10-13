@@ -8,7 +8,10 @@
   display: inline-block;
 }
 #event-desc {
-  max-width: calc(30em * 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 
   #events{
@@ -105,5 +108,5 @@
 }
 
 #resultsSection {
-  
+
 }
