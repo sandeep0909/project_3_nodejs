@@ -13,11 +13,10 @@ module.exports = {
             //res.json(user.intEvents)
             res.render('intEvents', {events: user.intEvents, user: user})
         })
-
     },
     allExtEvents: function(req, res) {
-        Event.find({_by: req.user._id}, function(err, ExtEvents) {
-            res.json(ExtEvents)
+        Event.find({_by: req.user._id, external: true }, function(err, ExtEvents) {
+            res.render('externalEvents.ejs', {ExtEvents: ExtEvents})
             //res.render('intEvents', {events: intEvents})
         })
 

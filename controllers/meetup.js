@@ -59,7 +59,7 @@ function specificEvent(req, res) {
     var url = urlprefix+req.query.url+'/events/'+req.query.eventId+apiKey
     // var apiurl = 'https://api.meetup.com/Square-Dance-in-West-LA/events/tjfzxlywcbgb?&key=6f5a18185325c31113220103533684b'
     request.get(url, function(err, response, body) {
-        var results = []
+        var results = [url]
         var data = JSON.parse(body);
         console.log(data);
         // res.send(data)
@@ -74,7 +74,6 @@ function hub(req, res) {
 function hub(req, res) {
   res.render("hub.ejs")
 }
-
 
 function eventSearch(req, res) {
     var results = [ [''], [''], [''] ];
@@ -131,7 +130,7 @@ function eventSearch(req, res) {
 }
 
 function addEvent(req, res){
-  // console.log(req.body)
+  console.log(req.body)
   console.log(req.user)
   var eventProps = {
     name: req.body.name,
