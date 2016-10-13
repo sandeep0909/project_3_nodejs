@@ -5,11 +5,9 @@
           </td>
       </div>
         <div class="oneevent">
-          <div class="thumbnail">
-            <img src="<%= eventData.img %>" alt="">
-          </div>
           <div class="jumbotron">
                 <div class="caption">
+                  <img src="<%= eventData.img || '/images/defaultImage.jpg'%>" alt="">
                   <div>
                     <h3>Event Name: <%= eventData.name %></h3>
                   </div>
