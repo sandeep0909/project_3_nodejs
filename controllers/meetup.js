@@ -1,6 +1,7 @@
 // var Meetup = require('../models/filename.js') //import required model
-var request = require('request')
-var Event = require('../models/Event.js')
+var request = require('request');
+var Event = require('../models/Event.js');
+var User = require('../models/User.js')
 
 module.exports = {
 specificEvent,
@@ -21,12 +22,10 @@ function searchResults(req, res) {
     if( req.query.topic) {
     urlpath = urlpath + '&topic='+req.query.topic
     }
-
     var city = '&city='+req.query.city;
     var zip = '&zip='+req.query.zip;
     var textsearch = '&text='+req.query.textsearch
     var key = '&key=6f5a18185325c31113220103533684b'
-
     // var apiurl = 'https://api.meetup.com/2/open_events?category=34&text=javascript&key=6f5a18185325c31113220103533684b'
     var apiurl = 'https://api.meetup.com/2/open_events?'+urlpath+city+zip+textsearch+key
     // console.log(urlpath)
@@ -39,10 +38,14 @@ function searchResults(req, res) {
            results.push({
              eventId: el.id,
              name: el.name,
-             urlName: el.group.urlname
+             urlName: el.group.urlname,
+             groupName: el.group.name,
+             who: el.group.who
+
+
            })
         })
-        console.log(results)
+        // console.log(results)
         res.send(results)
     })
 }
@@ -68,9 +71,14 @@ function hub(req, res) {
   res.render("hub.ejs")
 }
 
+function hub(req, res) {
+  res.render("hub.ejs")
+}
+
+
 function eventSearch(req, res) {
     var results = [ [''], [''], [''] ];
-
+    // console.log(currentUser._id);
     function topics(error, response, body) {
         if (!error && response.statusCode === 200) {
           var data = JSON.parse(body).results;
@@ -123,19 +131,48 @@ function eventSearch(req, res) {
 }
 
 function addEvent(req, res){
-  console.log(req.body)
+  // console.log(req.body)
+  console.log(req.user)
   var eventProps = {
     name: req.body.name,
     evtId: req.body.evtId,
     extId: req.body.extId,
     external: true,
-    description: req.body.description
+    description: req.body.description,
+    _by: req.user
   }
   Event.create(eventProps, function(err, event) {
-    res.render('addEvent.ejs', {event: event})
+    User.findById(req.user._id, function(err, user){
+      if(err) return console.log(err);
+      user.extEvents.push(event.extId)
+      user.save(function(err, user){
+        if(err) return console.log(err);
+        res.render('addEvent.ejs', {event: event})
+      })
+    })
+
   })
+
 }
 
 function eventIndex(req, res) {
 
 }
+
+//
+// create: function(req, res) {
+//   console.log(req.body);
+//     User.findById(req.params.id, function(err, user) {
+//         var newEvent = new Event(req.body)
+//         newEvent._by = user._id
+//             //populated _by with User Id
+//         newEvent.save(function(err) {
+//             if (err) return console.log(err)
+//             user.intEvents.push(newEvent)
+//             user.save(function(err) {
+//               //res.json(user)
+//               res.redirect('/users/'+req.params.id+'/events')
+//             })
+//         })
+//     })
+// },

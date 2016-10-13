@@ -80,6 +80,7 @@ app.get('/',function(req,res){
 app.use('/', userRoutes)
 app.use('/', eventRoutes)
 
+
 //server
 server.listen(PORT,function(err){
   console.log(err || "Server running on port"+PORT)

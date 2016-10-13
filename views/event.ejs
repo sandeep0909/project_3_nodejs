@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -21,7 +21,22 @@
 </div>
 
 <div class="container">
-    <h1 id="<%=data.id%>"><%= data.name %></h1>
+    <div class="row">
+      <div class="col-md-9">
+        <h1 id="<%=data.id%>"><%= data.name %></h1>
+      </div>
+      <div class="col-md-3">
+        <form action="/addEvent" method="POST">
+          <input type="hidden" name="name" value="<%= data.name %>">
+          <input type="hidden" name="extId" value="<%= data.id %>">
+          <input type="hidden" name="description" value="<%= data.description %>">
+          <button type="submit" class="btn btn-success btn-lg">Add Event!</button>
+          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
+        </form>
+      </div>
+    </div>
+
+
     <hr>
     <div class="row">
       <div class="col-md-4">
@@ -52,12 +67,6 @@
 
 </div>
 
-<form action="/addEvent" method="POST">
-  <input type="hidden" name="name" value="<%= data.name %>">
-  <input type="hidden" name="extId" value="<%= data.id %>">
-  <input type="hidden" name="description" value="<%= data.description %>">
-  <button type="submit" class="btn btn-success btn-lg">Add Event!</button>
-</form>
 
 <script type="text/javascript">
     // var imgage = <%# data.description %>;
