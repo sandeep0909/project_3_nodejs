@@ -1,3 +1,7 @@
+.navbar{
+  margin-bottom: 40px;
+}
+
   .splashJumbo {
     /*background-image: url('/images/dancing.jpg');
     background-repeat: no-repeat;
@@ -50,3 +54,36 @@
     background-color: rgba(51,51,51,.8);
     color: white;
   }
+
+.searchLeft {
+  border: solid 1px grey;
+  margin-left: 20px;
+  padding: 10px;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+}
+
+.searchRight {
+     position: relative;
+     background: #FFF;
+     /*overflow: auto;*/
+     z-index: 1;
+     left: 280px;
+     width: 800px;
+     heigth: 1000px;
+     padding: 10px;
+     margin-right: 20px;
+}
+
+.results {
+  position: relative;
+   left: 220px;
+   width: 100%;
+   height: 300px;
+
+}
+.container-fluid {
+  /*margin: 20px;*/
+
+}
