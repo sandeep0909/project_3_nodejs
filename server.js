@@ -66,20 +66,8 @@ mongoose.connect('mongodb://localhost/project3', function(err) {
   app.use(express.static(__dirname + '/public')); // to get static public files
 
 
-//link to routes
-// meetupRoutes = require('./routes/meetup.js')
+//Meetup to routes
 
-
-// Meetup routes
-// app.use('/meetup/categories', meetupRoutes);
-// app.get('/meetup/categories', meetupRoutes);
-// app.get('/meetup/cities', meetupRoutes);
-// app.get('/meetup/topics', meetupRoutes);
-// app.get('/meetup/openEvents', meetupRoutes);
-// app.get('/meetup/specificEvent', meetupRoutes);
-// app.get('/hub', meetupRoutes);
-// app.get('/test', meetupRoutes);
-// app.get('/meetup/eventSearch', meetupRoutes);
 app.use('/', meetupRoutes)
 ////// SANDEEP CHANGES HERE /////
 app.get('/',function(req,res){
@@ -91,6 +79,7 @@ app.get('/',function(req,res){
 
 app.use('/', userRoutes)
 app.use('/', eventRoutes)
+
 
 //server
 server.listen(PORT,function(err){

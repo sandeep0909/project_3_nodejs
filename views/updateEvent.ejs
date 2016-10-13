@@ -10,42 +10,19 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Create My Events</title>
+    <title>Update Event</title>
 
 
   </head>
 
   <body>
 
-    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="myModalLabel">Create Event</h4>
-          </div>
-          <div class="modal-body">
-            Awesome! You've decided to create an event locally. Whether it's a picnic or a pirate masquerade, just fill in the information you think others need to know, and hit the "Create Event" button when you're finished. You can manage all your events on another page.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
     <div class="container">
 
-      <form class="form" action="/users/<%= userId %>/events" method="post">
-        <h2 class="form-signin-heading">Create your event</h2>
+      <form class="form" action="/events/<%= event._id %>?_method=patch" method="post">
+        <h2 class="form-signin-heading">Update event</h2>
         <label for="inputEvent" class="sr-only">Event Name</label>
-        <input type="event" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
+        <input type="event" value= "<%=event.name%>" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
         <label for="inputdescription" class="sr-only">Description</label>
         <input type="Description" id="inputDescription" name="description" class="form-control" placeholder="Description" required>
 
@@ -60,7 +37,7 @@
 
         <label for="inputaddress" class="sr-only">address</label>
         <input type="address" id="inputaddress" name="address" class="form-control" placeholder="address" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Event</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update Event</button>
       </form>
 
     </div> <!-- /container -->

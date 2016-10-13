@@ -33,28 +33,46 @@ module.exports = {
     },
 
     show: function(req, res) {
-        Event.findById(req.params.id, function(err, eventdata) {
+        Event.findById(req.params.eventId, function(err, eventData) {
             if (err) return console.log(err)
+            console.log(eventData);
             //res.json(eventdata)
-            res.render('internalEvent')
+            res.render('internalEvent', {eventData: eventData})
         })
     },
+
+    edit: function(req,res){
+      console.log(req.body);
+      Event.findById(req.params.eventId, function(err, event) {
+          if (err) return console.log(err)
+          console.log(event);
+          //res.json(eventdata)
+          res.render('updateEvent',{event: event})
+      })
+    },
     update: function(req, res) {
-        Event.findByIdAndUpdate(req.params.id, req.body, {new: true},
-            function(err, event) {
-            res.json({message: "Event updated!", event:event})
+        Event.findByIdAndUpdate(req.params.eventId, req.body, {new: true},
+            function(err, eventData) {
+            //res.json({message: "Event updated!", event:event})
+            res.render('internalEvent', {eventData: eventData})
         })
     },
     destroy: function(req, res){
-         Event.findByIdAndRemove(req.params.id, function(err){
+      console.log("entering Delete");
+     Event.findById(req.params.eventId, function(err, event){
+       if(err) return console.log(err)
+       event.remove(function(err) {
+         if(err) return console.log(err)
+         User.findById(event._by, function(err, user){
            if(err) return console.log(err)
-           User.findById(req.user._id, function(err, user){
+           user.update({$pull: {paths: req.params.id}}, function(err){
              if(err) return console.log(err)
-             user.update({$pull: {paths: req.params.id}}, function(err){
-               if(err) return console.log(err)
-               res.redirect('/hub')
-             })
+             //res.redirect('/users/'+req.params.id+'/events')
+             res.redirect('../hub')
            })
          })
-     },
+       })
+      })
+
+     }
 }
