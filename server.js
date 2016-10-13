@@ -19,10 +19,10 @@ var
   eventRoutes = require('./routes/events.js'),
   cookieParser = require('cookie-parser'),
   PORT = process.env.PORT || 3000
-  var mongoConnectionString = 'mongodb://localhost/passport-authentication'
+  var mongoConnectionString = process.env.MONGO_URL || 'mongodb://localhost/project3'
 
 //database connection
-mongoose.connect('mongodb://localhost/project3', function(err) {
+mongoose.connect(mongoConnectionString, function(err) {
     if (err) {
         console.log("Problem connecting to Mongo. Check if mongod is activated")
     } else {
@@ -80,6 +80,7 @@ app.get('/',function(req,res){
 
 app.use('/', userRoutes)
 app.use('/', eventRoutes)
+
 
 //server
 server.listen(PORT,function(err){

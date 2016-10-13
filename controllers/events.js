@@ -15,6 +15,13 @@ module.exports = {
         })
 
     },
+    allExtEvents: function(req, res) {
+        Event.find({_by: req.user._id}, function(err, ExtEvents) {
+            res.json(ExtEvents)
+            //res.render('intEvents', {events: intEvents})
+        })
+
+    },
     create: function(req, res) {
       console.log(req.body);
         User.findById(req.params.id, function(err, user) {

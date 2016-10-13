@@ -5,7 +5,7 @@ var
     category: String,
     img: String,
     description: String,
-    external: Boolean,
+    external: {type: Boolean, default: false},
     eDate: String,
     eTime: String,
     address: String,
