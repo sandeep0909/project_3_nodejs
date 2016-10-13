@@ -158,21 +158,3 @@ function addEvent(req, res){
 function eventIndex(req, res) {
 
 }
-
-//
-// create: function(req, res) {
-//   console.log(req.body);
-//     User.findById(req.params.id, function(err, user) {
-//         var newEvent = new Event(req.body)
-//         newEvent._by = user._id
-//             //populated _by with User Id
-//         newEvent.save(function(err) {
-//             if (err) return console.log(err)
-//             user.intEvents.push(newEvent)
-//             user.save(function(err) {
-//               //res.json(user)
-//               res.redirect('/users/'+req.params.id+'/events')
-//             })
-//         })
-//     })
-// },
