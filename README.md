@@ -32,9 +32,26 @@ The site has user model and events model
 
 ![ERD](public/images/erd.png)
 
+---
+
+###### Login
+![WF] (public/images/intro.png)
+
+--
+
+###### Hub
+![WF](public/images/hub.png)
+
+--
+
+###### Your Events
+![WF](public/images/index.png)
+
+--
+###### Search
+![WF](public/images/search.png)
 
 
-![WF]()
 
 ## User Stories
 
