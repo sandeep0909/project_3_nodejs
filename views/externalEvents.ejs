@@ -1,0 +1,55 @@
+  <div id="events">
+    <div class="container">
+    <div id="event-btn">
+
+    </div>
+
+    name: {type: String, required: true},
+    category: String,
+    img: String,
+    description: String,
+    external: {type: Boolean, default: false},
+    eDate: String,
+    eTime: String,
+    address: String,
+    extId: String,
+
+
+
+      <% ExtEvents.forEach(function(el){ %>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+
+                <div class="caption">
+                    <div id="extEventAllTitle">
+
+      <a href="/meetup/specificEvent?url=' + el.urlName + '&eventId=' + el.eventId + '">' + el.name + '</a>
+                      <h4><a href='/meetup/specificEvent?url=<%= el.extId%>'><%= el.name %></a>
+                      </h4> <hr>
+                    </div>
+                    <p id="event-desc"><%- el.description %></p>
+                </div>
+            </div>
+        </div>
+
+      <% }) %>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Event Hub 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+  </div>

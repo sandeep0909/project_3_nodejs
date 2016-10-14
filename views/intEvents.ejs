@@ -25,6 +25,8 @@
       <a href='/users/<%= user.id%>/events/new' class="btn btn-lg btn-primary" >Add Event</a><hr>
     </div>
 
+<a href="/meetup/specificEvent?url=' + el.urlName + '&eventId=' + el.eventId + '">' + el.name + '</a>
+
       <% events.forEach(function(event){ %>
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
