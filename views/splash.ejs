@@ -30,8 +30,13 @@
   </div>
 <hr>
   <div class="text-center col-md-8 col-md-offset-2">
-      <a href="/login" class="btn btn-success splash-btn">Log In!</a>
-      <a href="/signup" class="btn btn-warning splash-btn">New Account</a>
+
+  <% if(!loggedIn){%>
+      <a href="/login" class="btn btn-success splash-btn">Log In</a>
+  <% } else{ %>
+      <a href="/hub" class="btn btn-success splash-btn">Enter</a>
+  <%}%>
+      <a href="/signup" class="btn btn-info splash-btn">New Account</a>
 
   </div>
 
