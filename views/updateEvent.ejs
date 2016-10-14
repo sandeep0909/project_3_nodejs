@@ -1,4 +1,4 @@
-
+<%#
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,39 +13,57 @@
     <title>Update Event</title>
 
 
-  </head>
+  </head>%>
 
   <body>
 
     <div class="container">
       <div>
-      <td>
           <a href='/users/<%= currentUser._id%>/events' class="btn btn-lg btn-primary">Back</a><hr>
-      </td>
     </div>
+      <h2 class="form-signin-heading">Update event</h2>
+      
+      <div class="jumbotron updateEventForm">
+
       <form class="form" action="/events/<%= event._id %>?_method=patch" method="post">
-        <h2 class="form-signin-heading">Update event</h2>
-        <label for="inputEvent" class="sr-only">Event Name</label>
-        <input type="event" value= "<%=event.name%>" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
-        <label for="inputimg" class="sr-only">Image</label>
-        <input type="inputimg" id="inputimg" name="img" class="form-control" placeholder="Event img">
-        <label for="inputdescription" class="sr-only">Description</label>
-        <input type="Description" value= "<%=event.description%>" id="inputDescription" name="description" class="form-control" placeholder="Description">
-
-        <label for="inputCategory" class="sr-only">Category</label>
-        <input type="Category" value= "<%=event.category%>" id="inputCategory" name="category" class="form-control" placeholder="Category">
-
-        <label for="inputdate" class="sr-only">date</label>
-        <input type="date" value= "<%=event.eDate%>" id="inputdate" name="eDate" class="form-control" placeholder="date">
-
-        <label for="inputTime" class="sr-only">Time</label>
-        <input type="Time" value= "<%=event.eTime%>" id="inputTime" name="eTime" class="form-control" placeholder="Time">
-
-        <label for="inputaddress" class="sr-only">address</label>
-        <input type="address" value= "<%=event.address%>" id="inputaddress" name="address" class="form-control" placeholder="address">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Update Event</button>
+        <div class="form-group">
+          <label for="inputEvent" class="sr-only">Event Name</label>
+          <input type="event" value= "<%=event.name%>" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputimg" class="sr-only">Image</label>
+          <input type="inputimg" id="inputimg" name="img" class="form-control" placeholder="Event img">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputdescription" class="sr-only">Description</label>
+          <input type="Description" value= "<%=event.description%>" id="inputDescription" name="description" class="form-control" placeholder="Description">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputCategory" class="sr-only">Category</label>
+          <input type="Category" value= "<%=event.category%>" id="inputCategory" name="category" class="form-control" placeholder="Category">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputdate" class="sr-only">date</label>
+          <input type="date" value= "<%=event.eDate%>" id="inputdate" name="eDate" class="form-control" placeholder="date">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputTime" class="sr-only">Time</label>
+          <input type="Time" value= "<%=event.eTime%>" id="inputTime" name="eTime" class="form-control" placeholder="Time">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputaddress" class="sr-only">address</label>
+          <input type="address" value= "<%=event.address%>" id="inputaddress" name="address" class="form-control" placeholder="address">
+        </div>
+        <br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Update Event</button>
       </form>
-
+</div>
     </div> <!-- /container -->
 
 
