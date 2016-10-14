@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<%# <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -13,10 +13,10 @@
     <title>Create My Events</title>
 
 
-  </head>
+  </head>%>
 
   <body>
-    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
+
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -41,33 +41,52 @@
 
     <div class="container">
       <div>
-      <td>
-          <a href='/users/<%= currentUser._id%>/events' class="btn btn-lg btn-primary">Back</a><hr>
-      </td>
+        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">More Info</button>
+          <button class="btn btn-lg btn-warning" type="button" name="button"><a href='/users/<%= currentUser._id%>/events' class="">Back</a></button>
     </div>
-      <form class="form" action="/users/<%= userId %>/events" method="post">
-        <h2 class="form-signin-heading">Create your event</h2>
-        <label for="inputEvent" class="sr-only">Event Name</label>
-        <input type="event" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
+    <hr>
+      <h2 class="form-signin-heading">Create your event</h2>
+      <div class="jumbotron createEventForm">
+
+      <form class="form-group" action="/users/<%= userId %>/events" method="post">
+        <div class="form-group">
+          <label for="inputEvent" class="sr-only">Event Name</label>
+          <input type="event" id="inputEvent" name="name" class="form-control" placeholder="Event Name" required autofocus>
+        </div>
+          <br>
+          <div class="form-group">
         <label for="inputimg" class="sr-only">Image</label>
         <input type="inputimg" id="inputimg" name="img" class="form-control" placeholder="Event img" >
-        <label for="inputdescription" class="sr-only">Description</label>
-        <input type="Description" id="inputDescription" name="description" class="form-control" placeholder="Description" >
-
-        <label for="inputCategory" class="sr-only">Category</label>
-        <input type="Category" id="inputCategory" name="category" class="form-control" placeholder="Category" >
-
-        <label for="inputdate" class="sr-only">date</label>
-        <input type="date" id="inputdate" name="eDate" class="form-control" placeholder="date" >
-
-        <label for="inputTime" class="sr-only">Time</label>
-        <input type="Time" id="inputTime" name="eTime" class="form-control" placeholder="Time" >
-
-        <label for="inputaddress" class="sr-only">address</label>
-        <input type="address" id="inputaddress" name="address" class="form-control" placeholder="address" >
+      </div>
+        <br>
+        <div class="form-group">
+          <label for="inputdescription" class="sr-only">Description</label>
+          <input type="Description" id="inputDescription" name="description" class="form-control" placeholder="Description" >
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputCategory" class="sr-only">Category</label>
+          <input type="Category" id="inputCategory" name="category" class="form-control" placeholder="Category" >
+        </div>
+          <br>
+          <div class="form-group">
+            <label for="inputdate" class="sr-only">date</label>
+            <input type="date" id="inputdate" name="eDate" class="form-control" placeholder="date" >
+          </div>
+        <br>
+        <div class="form-group">
+          <label for="inputTime" class="sr-only">Time</label>
+          <input type="Time" id="inputTime" name="eTime" class="form-control" placeholder="Time" >
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="inputaddress" class="sr-only">address</label>
+          <input type="address" id="inputaddress" name="address" class="form-control" placeholder="address" >
+        </div>
+        <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Create Event</button>
       </form>
-
+</div>
     </div> <!-- /container -->
 
 

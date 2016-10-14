@@ -17,6 +17,8 @@
 
   body{
     background-image: url(/images/rainbow.png);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .splashJumbo {
     /*background-image: url('/images/dancing.jpg');
@@ -78,15 +80,18 @@
   position: fixed;
   width: 250px;
   height: 100%;
+  background-color: rgba(51,51,51,.8);
+  color: white;
 }
 
 .searchRight {
      position: relative;
-     background: #FFF;
+     background: rgba(51,51,51,.8);
+      color: white;
      /*overflow: auto;*/
      z-index: 1;
      left: 280px;
-     width: 800px;
+     width: 100%;
      heigth: 1000px;
      padding: 10px;
      margin-right: 20px;
@@ -104,8 +109,50 @@
 
 }
 
-#info {
-  list-style: none
+.tblhead{
+  background-color: #444;
+  color: white;
+  font-size: 20px;
+}
+
+#info tr:nth-child(even) {
+    background-color: #222;
+    padding 2px 0;
+    font-size: 18px;
+}
+
+#info tr:nth-child(odd) {
+    background-color: #000;
+    padding 2px 0;
+    font-size: 18px;
+}
+
+#ifno {
+  position: fixed;
+}
+
+.meetupSingleEvent {
+  color: white;
+  font-size: 18px;
+  background-color: rgba(51,51,51,.8);
+}
+
+.createEventForm {
+background-color: rgba(51,51,51,.8);
+
+}
+
+.createEventForm input {
+  height: 50px;
+  font-size: 20px;
+}
+
+.updateEventForm {
+  background-color: rgba(51,51,51,.8);
+}
+.updateEventForm input {
+  height: 50px;
+  font-size: 20px;
 }
 
 #resultsSection {
