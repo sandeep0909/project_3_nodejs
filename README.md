@@ -1,8 +1,8 @@
 
-#Project 3 Calendar Event
-### A central place for all your events
+#Event Hub
+### A simple way to map your event life.
 
-#### The purpose of the App is to give the user a way to centralize all his/her events. These events are either created by the user or added to his/her calendar through a third party API.
+#### The purpose of the App is to give the user a way to centralize all his/her events. These events are either created by the user or added to his/her hub through a third party API.
 
 
 ##Content
@@ -16,19 +16,21 @@
 * Credits
 
 ## Installation & Requirements
-* Download the entire contents and open with your editor.
+* Download the entire contents and open with your code editor.
 * Need to have NPM and node installed on your local machine.
-* Browsers: chrome, opera, firefox, safari, IE8 and above,
+* Browsers: chrome, opera, firefox, safari, IE8 and above.
+* You will need to add your own Api key for each API.
+* Data base is linke to heroku so you will have to change the db connection string to your local machine
 
 ## Usage
-You can use the app for your own purposes. However, you will have to acquire your own API credentials for all the available API's.  
+You can use the app for your own purposes. However, you will have to acquire your own API credentials for all the available API's. Furthermore, you will need to reconfigure the app to be hosted in your localhost vs heroku.
 
 
 
 ## Data Structure & Site Layout
 The site has user model and events model
 
-![ERD]()
+![ERD](public/images/erd.png)
 
 
 
@@ -54,15 +56,18 @@ A user decides they want to see events that are from an API
 
 ## Technologies
 * Node.js, bcrypt-nodejs, body-parser, connect-flash, cookie-parser, dotenv,
-  ejs, express, express-ejs-layouts, express-session, fullcalendar, mongoose,
+  ejs, express, express-ejs-layouts, express-session,  mongoose,
   morgan, passport, passport-facebook, passport-local, socket.io
-* Database: mongo
+* Database: mongodb hosted on heroku
 * Styling: HTML, CSS(Saas, Less), Bootsrap,
 * Site Hosting:  Heroku
 
 
 ## Troubleshooting & Pending Functionality
-
+* Currently we only have one API. We will add more API's in time
+* We would like the user to share their events with friends
+* People comenting on events that they have visited
+* There are minor bugs that need fixing
 
 ## Contributing
 1. Fork it and make it your own

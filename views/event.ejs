@@ -30,7 +30,7 @@
           <input type="hidden" name="name" value="<%= data.name %>">
           <input type="hidden" name="extId" value="<%=data.group.urlname%>&eventId=<%=data.id%>">
           <input type="hidden" name="description" value="<%= data.description %>">
-          <button type="submit" class="btn btn-success btn-lg">Add Event!</button>
+          <button type="submit" class="btn btn-success btn-lg addEvent">Add Event!</button>
           <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
         </form>
       </div>
@@ -55,13 +55,12 @@
           <p>Address: <%= data.venue.address_1%></li>
           <p>City: <%= data.venue.city%></li>
           <P>People Attending: <%= data.yes_rsvp_count%></li>
-        } else {
+      <%  } else { %>
           <h4>Venue - </strong>None</h4> <br>
           <p>Address: None%></li>
           <p>City: None</li>
           <P>People Attending: None</li>
       <%  } %>
-
         </div>
       </div>
 
@@ -73,15 +72,16 @@
 </div>
 
 </div>
-<div id="picture">
 
-</div>
 
 
 <script type="text/javascript">
-    // var imgage = <%# data.description %>;
-    // var elements = $(image);
-    // var found = $('img', elements);
-    // console.log(elements)
-    // $('#picture').append(found)
+
+
+$('.addEvent').load(function(){
+var opts = {
+
+},
+
+})
 </script>
