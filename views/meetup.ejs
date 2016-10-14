@@ -1,13 +1,9 @@
-
 <body>
 
-
 <div class="container-fluid">
-
-    <!-- <div class="row"> -->
+<div class="row">
         <div class="form-group col-md-2  searchLeft">
           <h1>Search Events</h1> <hr>
-          <!-- <label for="SearchText">Text Search</label> -->
           <input type="zip" class="form-control" id="textSearch" placeholder="Search by phrase">
             <br>
             <label for="sel1">Category:</label>
@@ -36,15 +32,12 @@
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">More Info</button>
         </div>
         <div class="form-group col-md-10 searchRight">
-          <div id="resultsSection">
-            <ul id="info">
-          </ul>
-          </div>
-
-
+          <table class="table table-condensed">
+                <thead id="info" >
+                </thead>
+          </table>
         </div>
-
-    <!-- </div> -->
+</div>
 
 
 </div>
@@ -105,9 +98,9 @@ $('#search-button').on('click', function(evt) {
     };
     var cb = function(data) {
         console.log(data)
+        $('#info').append('<tr class="tblhead"><th class="col-md-4">Group Name</th><th class="col-md-8">Event Name</th></tr>')
         data.forEach(function(el) {
-            $('#info').append('<li id=' + el.urlName + '/events/' + el.eventId + '><a href="/meetup/specificEvent?url=' + el.urlName + '&eventId=' + el.eventId + '">' + el.name + '</a></li><br>')
-
+        $('#info').append('<tr><td>'+el.urlName+'</td></td><td id=' + el.urlName + '/events/' + el.eventId + '><a href="/meetup/specificEvent?url=' + el.urlName + '&eventId=' + el.eventId + '">' + el.name + '</a></td></tr>')
         })
     };
     $.ajax(opts).done(cb);
