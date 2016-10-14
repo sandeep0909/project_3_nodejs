@@ -13,7 +13,10 @@
   text-overflow: ellipsis;
   max-width: 200px;
 }
-
+.tile {
+  height: 350px;
+  /*border: 5px solid red;*/
+}
 
   body{
     background-image: url(/images/rainbow.png);

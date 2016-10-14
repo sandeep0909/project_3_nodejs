@@ -22,7 +22,7 @@
           <a href='/users/<%= currentUser._id%>/events' class="btn btn-lg btn-primary">Back</a><hr>
     </div>
       <h2 class="form-signin-heading">Update event</h2>
-      
+
       <div class="jumbotron updateEventForm">
 
       <form class="form" action="/events/<%= event._id %>?_method=patch" method="post">
@@ -33,7 +33,7 @@
         <br>
         <div class="form-group">
           <label for="inputimg" class="sr-only">Image</label>
-          <input type="inputimg" id="inputimg" name="img" class="form-control" placeholder="Event img">
+          <input type="inputimg" id="inputimg" name="img" value= "<%=event.img%>" class="form-control" placeholder="Event img">
         </div>
         <br>
         <div class="form-group">
