@@ -155,6 +155,19 @@ background-color: rgba(51,51,51,.8);
   font-size: 20px;
 }
 
+.allEvents {
+background-color: rgba(51,51,51,.8);
+color: white;
+padding: 0 30px;
+font-size: 20px;
+margin: 0 auto;
+}
+
+
+.internalEvent {
+  background-color: rgba(51,51,51,.8);
+color: white;
+}
 #resultsSection {
 
 }
