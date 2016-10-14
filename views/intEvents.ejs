@@ -1,31 +1,10 @@
-<%# <!DOCTYPE html>
-<html lang="en">%>
-<%#
-<head>
 
-    <title>Internal Events</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
-
-
-</head>
-
-<body>%>
-
-    <!-- Navigation -->
-
-        <!-- Page Content -->
   <div id="events">
     <div class="container">
     <div id="event-btn">
       <a href='/users/<%= user.id%>/events/new' class="btn btn-lg btn-primary" >Add Event</a><hr>
     </div>
 
-<a href="/meetup/specificEvent?url=' + el.urlName + '&eventId=' + el.eventId + '">' + el.name + '</a>
 
       <% events.forEach(function(event){ %>
         <div class="col-sm-4 col-lg-4 col-md-4">
