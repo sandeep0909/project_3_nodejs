@@ -78,6 +78,8 @@
   position: fixed;
   width: 250px;
   height: 100%;
+  background-color: rgba(51,51,51,.8);
+  color: white;
 }
 
 .searchRight {
@@ -106,6 +108,10 @@
 
 #info {
   list-style: none
+}
+
+#searchbox {
+
 }
 
 #resultsSection {

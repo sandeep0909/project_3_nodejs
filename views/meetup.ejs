@@ -76,6 +76,11 @@
     category = $(this).find('option:selected').attr('id')
   })
 
+  $('#clearsearch').on('click', function(){
+    $('input').val('');
+    $('option').empty();
+  })
+
 var category
 var $topic = $('#topic');
 var $city = $('#city');
